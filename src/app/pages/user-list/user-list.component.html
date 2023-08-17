@@ -1,0 +1,20 @@
+<article *ngIf="users?.length else loading" class="user-list">
+  <ng-container *ngFor="let user of users trackBy:trackBy; let i = index;">
+    <app-card [user]="user!">
+      <app-button
+        (onClick)="saveUser($event, user)"
+        *ngIf="user"
+        buttonContent
+        class="delete-btn">Save
+      </app-button>
+      <app-weather [weather]="user!.weather" weatherContent></app-weather>
+    </app-card>
+  </ng-container>
+</article>
+
+<ng-template #loading>
+  <app-spinner [isLoading]="isLoading"></app-spinner>
+</ng-template>
+
+
+
