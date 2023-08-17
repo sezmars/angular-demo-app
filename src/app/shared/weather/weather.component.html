@@ -1,0 +1,18 @@
+<li class="day">
+  <ng-container *ngIf="weather?.dates?.length else loading">
+    <ng-container *ngFor="let date of weather.dates let index = index">
+      <ng-container *ngIf="index === 0">
+        <span>{{getWeatherIcon(weather.codes.at(index)!)}}</span>
+        <p>{{index === 0 ? "Today" : formatDay(date)}}</p>
+        <p>
+          Min: {{Math.floor(weather.min.at(index)!)}}C&deg; &mdash;
+          Max: <strong>{{Math.ceil(weather.max.at(index)!)}}C&deg;</strong>
+        </p>
+      </ng-container>
+    </ng-container>
+  </ng-container>
+</li>
+
+<ng-template #loading>
+  <app-spinner [isLoading]="isLoading"></app-spinner>
+</ng-template>
