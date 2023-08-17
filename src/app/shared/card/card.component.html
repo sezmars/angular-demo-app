@@ -1,0 +1,12 @@
+<article class="user-card">
+  <img alt="Photo of {{user.name?.first}}" class="user-img" src="{{user.picture?.large}}">
+  <p class="user-headline">Meet <span class="user-name">{{user.name?.first}}</span></p>
+  <p class="user-description">
+    <span class="user-name">
+      <a [href]="'mailto:' + user.email + '?Subject=Hello'"
+         class="item" target="_top">{{user.email}}</a>
+    </span>
+  </p>
+  <ng-content select="[weatherContent]"></ng-content>
+  <ng-content select="[buttonContent]"></ng-content>
+</article>
