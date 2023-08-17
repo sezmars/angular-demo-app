@@ -1,0 +1,26 @@
+<app-button
+  (onClick)="backClicked()"
+  type="back">🔙
+</app-button>
+
+<ng-container *ngIf="(user$ | async) as user; else loading">
+  <app-card [user]="user!">
+    <app-weather [weather]="user.weather!" weatherContent></app-weather>
+  </app-card>
+  <app-map [markerOptions]="{
+            id: user.login!.uuid,
+            name: user.name!.last,
+            description: user.gender!,
+            picture: user.picture!.large,
+            position: [+user.location?.coordinates!.latitude, +user.location?.coordinates!.longitude]
+        }">
+  </app-map>
+
+</ng-container>
+
+
+<ng-template #loading>
+  <app-spinner [isLoading]="isLoading"></app-spinner>
+</ng-template>
+
+
