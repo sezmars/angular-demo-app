@@ -18,8 +18,10 @@ export class WeatherService {
 
   public getWeather(latitude: string, longitude: string, timezone: string): Observable<Partial<IWeather>> {
     return this.http.get<{
-      daily: Partial<IWeatherBase>
-    }>(`${URL}?latitude=${latitude}&longitude=${longitude}&timezone=${timezone}&daily=weathercode,temperature_2m_max,temperature_2m_min`)
+      daily: Partial<IWeatherBase>,
+      hourly: Partial<IWeatherBase>,
+
+    }>(`${URL}?latitude=${latitude}&longitude=${longitude}&timezone=${timezone}&daily=weathercode,temperature_2m_max,temperature_2m_min&hourly=temperature_2m`)
       .pipe(map((data) => {
         const {
           temperature_2m_max: max,
@@ -28,7 +30,7 @@ export class WeatherService {
           weathercode: codes,
         } = data.daily
 
-        return {max, min, dates, codes}
+        return {max, min, dates, codes, hourly: data.hourly}
       }))
   }
 }

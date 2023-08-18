@@ -11,4 +11,8 @@ export interface IWeatherBase {
   temperature_2m_min: number[],
   time: string[],
   weathercode: number[],
+  hourly: {
+    time: string[]
+    temperature_2m: number[]
+  },
 }

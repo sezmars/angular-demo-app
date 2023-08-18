@@ -3,7 +3,7 @@
   type="back">🔙
 </app-button>
 
-<ng-container *ngIf="(user$ | async) as user; else loading">
+<ng-container *ngIf="user; else loading">
   <app-card [user]="user!">
     <app-weather [weather]="user.weather!" weatherContent></app-weather>
   </app-card>
@@ -15,7 +15,6 @@
             position: [+user.location?.coordinates!.latitude, +user.location?.coordinates!.longitude]
         }">
   </app-map>
-
 </ng-container>
 
 

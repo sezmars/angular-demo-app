@@ -59,6 +59,9 @@ export class UserListComponent implements OnInit {
     }
 
     await this.router.navigate(['/profile/' + user.login.uuid], {
+      /**
+       * Needed for the initial rendering of the map if we receive data by http GET => id
+       * */
       queryParams: {
         latitude: user.location.coordinates.latitude,
         longitude: user.location.coordinates.longitude
