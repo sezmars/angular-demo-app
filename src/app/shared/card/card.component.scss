@@ -16,9 +16,13 @@
 }
 
 .user-description, .user-headline, .user-learn-more {
-  padding: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 5px;
+  text-overflow: ellipsis;
 }
 
 .user-headline {
+  text-align: center;
   font-size: 18pt;
 }

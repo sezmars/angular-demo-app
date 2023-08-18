@@ -1,6 +1,6 @@
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {CommonModule} from "@angular/common";
-import {IWeather} from "../../interfaces/weather";
+import {IWeather, IWeatherBase} from "../../interfaces/weather";
 import {ButtonComponent} from "../button/button.component";
 import {CardComponent} from "../card/card.component";
 import {SpinnerComponent} from "../spinner/spinner.component";
@@ -18,13 +18,17 @@ import {SpinnerComponent} from "../spinner/spinner.component";
   styleUrls: ['./weather.component.scss']
 })
 export class WeatherComponent implements OnChanges {
-  @Input() weather!: IWeather
+  @Input() public weather!: IWeather
   public isLoading: boolean = true;
+  public currentTemperature!: number;
   protected readonly Math = Math;
+
 
   public ngOnChanges(changes: SimpleChanges) {
     if (changes['weather'].currentValue) {
       this.isLoading = false
+
+      this.prepareCurrentTemp(changes['weather'].currentValue)
     }
   }
 
@@ -45,10 +49,30 @@ export class WeatherComponent implements OnChanges {
       [[53, 55, 63, 65, 57, 67, 81, 82], "🌧"],
       [[71, 73, 75, 77, 85, 86], "🌨"],
       [[95], "🌩"],
-      [[96, 99], "⛈"],
+      [[96, 99], "⛈️"],
     ]);
     const arr = [...icons.keys()].find((key) => key.includes(wmoCode));
     if (!arr) return "NOT FOUND";
     return icons.get(arr);
+  }
+
+  private prepareCurrentTemp(value: Partial<IWeatherBase>) {
+    const currentDateTime = new Date(); // Получаем текущую дату и время
+
+    const currentTimestamp = currentDateTime.getTime();
+
+    const timestamps = value.hourly!.time.map((time: string | number | Date) => new Date(time).getTime());
+
+    const closestTimestamp = timestamps.reduce((prev: number, curr: number) =>
+      Math.abs(curr - currentTimestamp) < Math.abs(prev - currentTimestamp) ? curr : prev
+    );
+
+    const closestTimeIndex = timestamps.indexOf(closestTimestamp);
+
+    if (closestTimeIndex !== -1) {
+      this.currentTemperature = value.hourly!.temperature_2m[closestTimeIndex]
+    } else {
+      console.info('Weather data not found for the current time range.');
+    }
   }
 }

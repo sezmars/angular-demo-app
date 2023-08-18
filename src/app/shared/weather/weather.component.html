@@ -3,7 +3,11 @@
     <ng-container *ngFor="let date of weather.dates let index = index">
       <ng-container *ngIf="index === 0">
         <span>{{getWeatherIcon(weather.codes.at(index)!)}}</span>
+        <!-- For days of the week, but not included in this version -->
         <p>{{index === 0 ? "Today" : formatDay(date)}}</p>
+        <p>
+          Current: {{currentTemperature ? currentTemperature : 'Not available'}}C&deg;
+        </p>
         <p>
           Min: {{Math.floor(weather.min.at(index)!)}}C&deg; &mdash;
           Max: <strong>{{Math.ceil(weather.max.at(index)!)}}C&deg;</strong>

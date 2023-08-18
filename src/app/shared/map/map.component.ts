@@ -83,9 +83,6 @@ export class MapComponent implements OnChanges {
           iconRetinaUrl: this.markerOptions.picture,
           shadowUrl: 'assets/leaflet/marker-shadow.png'
         }),
-        title: 'dsdsadqwweqw',
-        alt: 'dsdsadqwweqw',
-        autoPan: true,
       }
     );
     this.markers.push(newMarker);
