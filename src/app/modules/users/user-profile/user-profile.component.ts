@@ -1,9 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {IUser} from "../../interfaces/user";
+import {IUser} from "../../../interfaces/user";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Location} from '@angular/common';
-import {SharedComponentsModule} from "../../shared/shared-components.module";
-import {LocalStorageService} from "../../services/local-storage.service";
+import {SharedComponentsModule} from "~shared/shared-components.module";
+import {LocalStorageService} from "../../../services/local-storage.service";
 
 @Component({
   standalone: true,
