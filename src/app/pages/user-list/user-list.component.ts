@@ -54,7 +54,7 @@ export class UserListComponent implements OnInit {
 
     user.login.uuid ? this.localStorageService.saveData(user.login.uuid, user) : alert('UUID does not exist')
 
-    await this.router.navigate(['/profile/' + user.login.uuid], {
+    await this.router.navigate(['user-list/profile/' + user.login.uuid], {
       /**
        * Needed for the initial rendering of the map if we receive data by http GET => id
        * */
