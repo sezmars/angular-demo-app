@@ -7,15 +7,28 @@ import {IUser} from "../interfaces/user";
 export class LocalStorageService {
 
   public saveData(key: string, data: IUser) {
-    localStorage.setItem(key, JSON.stringify(data));
+    try {
+      localStorage.setItem(key, JSON.stringify(data));
+    } catch (e) {
+      console.error(e);
+    }
   }
 
-  public getData(key: string): IUser {
-    const data = localStorage.getItem(key);
-    return data ? JSON.parse(data) : null;
+  public getData(key: string): IUser | null {
+    try {
+      const data = localStorage.getItem(key);
+      return data ? JSON.parse(data) : null;
+    } catch (e) {
+      console.error(e);
+      return null;
+    }
   }
 
   public clearData(key: string) {
-    localStorage.removeItem(key);
+    try {
+      localStorage.removeItem(key);
+    } catch (e) {
+      console.error(e);
+    }
   }
 }

@@ -52,11 +52,7 @@ export class UserListComponent implements OnInit {
     event.preventDefault()
     event.stopPropagation()
 
-    try {
-      user.login.uuid ? this.localStorageService.saveData(user.login.uuid, user) : alert('UUID does not exist')
-    } catch (e) {
-      console.log('Error when saving value to localStorage ' + e)
-    }
+    user.login.uuid ? this.localStorageService.saveData(user.login.uuid, user) : alert('UUID does not exist')
 
     await this.router.navigate(['/profile/' + user.login.uuid], {
       /**

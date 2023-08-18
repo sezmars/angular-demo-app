@@ -15,7 +15,7 @@ import {LocalStorageService} from "../../services/local-storage.service";
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit, OnDestroy {
-  public user!: Partial<IUser>;
+  public user!: Partial<IUser> | null;
   public id: string | null;
   public isLoading: boolean = false;
 
@@ -29,16 +29,13 @@ export class UserProfileComponent implements OnInit, OnDestroy {
 
   public async ngOnInit() {
     this.isLoading = true;
-    try {
-      this.user = this.localStorageService.getData(this.id!)
-      this.isLoading = false;
 
-      if (!this.user) {
-        alert('User not found')
-        await this.router.navigate(['/'])
-      }
-    } catch (e) {
-      console.error(e)
+    this.user = this.localStorageService.getData(this.id!)
+    this.isLoading = false;
+
+    if (!this.user) {
+      alert('User not found')
+      await this.router.navigate(['/'])
     }
   }
 
