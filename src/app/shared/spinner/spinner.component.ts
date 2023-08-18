@@ -2,7 +2,7 @@ import {Component, Input} from '@angular/core';
 import {NgIf} from "@angular/common";
 
 /**
- * Optimal solution: use in intersepotor
+ * Optimal solution: use in interceptor
  * */
 @Component({
   standalone: true,
