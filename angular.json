@@ -114,7 +114,11 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://sezmars.github.io/angular-demo-app/",
+            "name": "User Weather Angular App with standalone components",
+          }
         }
       }
     }
