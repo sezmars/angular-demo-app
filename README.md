@@ -89,7 +89,6 @@ Time management is crucial. Begin with implementing the core functionality ("hap
 Such features were not included in the project to save time:
 
 - onPushStrategy
-- environment.ts
 - directive defaultPrevent
 - aliases for imports
 - eslint for project
