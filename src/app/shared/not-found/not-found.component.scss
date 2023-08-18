@@ -1,0 +1,53 @@
+main {
+  height: 100vh;
+  width: 100vw;
+  background: var(--color-light--2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main #errorText {
+  font-size: 22px;
+  margin: 14px 0;
+}
+
+main #errorLink {
+  font-size: 20px;
+  padding: 12px;
+  border: 1px solid;
+  color: var(--color-dark--0);
+  background-color: transparent;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+}
+
+main #errorLink:hover, main #errorLink:active {
+  color: var(--color-light--2);
+  background: var(--color-dark--0);
+}
+
+main #g6219 {
+  transform-origin: 85px 4px;
+  -webkit-animation: an1 12s 0.5s infinite ease-out;
+  animation: an1 12s 0.5s infinite ease-out;
+}
+
+@keyframes an1 {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  5%, 55%, 75% {
+    transform: rotate(3deg);
+  }
+  15%, 65% {
+    transform: rotate(-2.5deg);
+  }
+  25%, 85% {
+    transform: rotate(2deg);
+  }
+  35%, 45%, 95% {
+    transform: rotate(-1.5deg);
+  }
+}
