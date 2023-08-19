@@ -20,15 +20,11 @@ import {SpinnerComponent} from "../spinner/spinner.component";
 })
 export class WeatherComponent implements OnChanges {
   @Input() public weather!: IWeather
-  public isLoading: boolean = true;
   public currentTemperature!: number;
   protected readonly Math = Math;
 
-
   public ngOnChanges(changes: SimpleChanges) {
     if (changes['weather'].currentValue) {
-   //   this.isLoading = false
-
       this.prepareCurrentTemp(changes['weather'].currentValue)
     }
   }

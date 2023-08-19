@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {AsyncPipe, NgIf} from "@angular/common";
+import {BehaviorSubject} from "rxjs";
 
 /**
  * Optimal solution: use in intersepotor
@@ -16,5 +17,5 @@ import {AsyncPipe, NgIf} from "@angular/common";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SpinnerComponent {
-  @Input() isLoading: boolean = false;
+  @Input() isLoading: boolean | null = false;
 }

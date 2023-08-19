@@ -1,5 +1,5 @@
 <li class="day">
-  <ng-container *ngIf="weather?.dates?.length else loading">
+  <ng-container *ngIf="weather?.dates?.length">
     <ng-container *ngFor="let date of weather.dates let index = index">
       <ng-container *ngIf="index === 0">
         <span>{{getWeatherIcon(weather.codes.at(index)!)}}</span>
@@ -16,7 +16,3 @@
     </ng-container>
   </ng-container>
 </li>
-
-<ng-template #loading>
-  <app-spinner [isLoading]="isLoading"></app-spinner>
-</ng-template>

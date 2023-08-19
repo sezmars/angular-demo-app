@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {IUser} from "../../../interfaces/user";
 import {UsersService} from "../../../services/users.service";
 import {LocalStorageService} from "../../../services/local-storage.service";
-import {finalize, forkJoin, switchMap} from "rxjs";
+import {BehaviorSubject, finalize, forkJoin, switchMap} from "rxjs";
 import {SharedComponentsModule} from "~shared/shared-components.module";
 import {Router} from "@angular/router";
 import {WeatherService} from "../../../services/weather.service";
@@ -20,7 +20,7 @@ import {IWeather} from "../../../interfaces/weather";
 })
 export class UserListComponent implements OnInit {
   public users!: Partial<IUser[]>
-  public isLoading: boolean = false;
+  public isLoading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(
     private router: Router,
@@ -30,7 +30,7 @@ export class UserListComponent implements OnInit {
   }
 
   public ngOnInit() {
-    this.isLoading = true;
+    this.isLoading$.next(true)
     this.usersService.getUsers().pipe(
       switchMap((users: Partial<IUser[]>) => {
         this.users = users;
@@ -40,7 +40,7 @@ export class UserListComponent implements OnInit {
         );
         return forkJoin(weatherRequests);
       }),
-      finalize(() => this.isLoading = false)
+      finalize(() => this.isLoading$.next(false))
     ).subscribe((weatherResponses) => {
       this.users.map((user, index) => user!.weather = <IWeather>weatherResponses[index])
     });

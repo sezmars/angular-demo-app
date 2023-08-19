@@ -13,7 +13,7 @@
 </article>
 
 <ng-template #loading>
-  <app-spinner [isLoading]="isLoading"></app-spinner>
+  <app-spinner [isLoading]="isLoading$ | async"></app-spinner>
 </ng-template>
 
 
