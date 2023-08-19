@@ -1,5 +1,5 @@
-import {Component, Input} from '@angular/core';
-import {NgIf} from "@angular/common";
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {AsyncPipe, NgIf} from "@angular/common";
 
 /**
  * Optimal solution: use in intersepotor
@@ -9,9 +9,11 @@ import {NgIf} from "@angular/common";
   selector: 'app-spinner',
   templateUrl: './spinner.component.html',
   imports: [
-    NgIf
+    NgIf,
+    AsyncPipe
   ],
-  styleUrls: ['./spinner.component.scss']
+  styleUrls: ['./spinner.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SpinnerComponent {
   @Input() isLoading: boolean = false;

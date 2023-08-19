@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {RouterLink} from "@angular/router";
 import {IUser} from "../../interfaces/user";
 import {NgIf, TitleCasePipe} from "@angular/common";
@@ -12,7 +12,8 @@ import {NgIf, TitleCasePipe} from "@angular/common";
     TitleCasePipe,
     NgIf
   ],
-  styleUrls: ['./card.component.scss']
+  styleUrls: ['./card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardComponent {
   @Input() user!: Partial<IUser>;

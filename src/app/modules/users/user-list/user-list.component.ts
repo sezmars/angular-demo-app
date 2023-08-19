@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {IUser} from "../../../interfaces/user";
 import {UsersService} from "../../../services/users.service";
 import {LocalStorageService} from "../../../services/local-storage.service";
@@ -15,7 +15,8 @@ import {IWeather} from "../../../interfaces/weather";
   styleUrls: ['./user-list.component.scss'],
   imports: [
     SharedComponentsModule,
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserListComponent implements OnInit {
   public users!: Partial<IUser[]>

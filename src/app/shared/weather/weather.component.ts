@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import {IWeather, IWeatherBase} from "../../interfaces/weather";
 import {ButtonComponent} from "../button/button.component";
@@ -15,7 +15,8 @@ import {SpinnerComponent} from "../spinner/spinner.component";
     CardComponent,
     SpinnerComponent
   ],
-  styleUrls: ['./weather.component.scss']
+  styleUrls: ['./weather.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WeatherComponent implements OnChanges {
   @Input() public weather!: IWeather
@@ -26,7 +27,7 @@ export class WeatherComponent implements OnChanges {
 
   public ngOnChanges(changes: SimpleChanges) {
     if (changes['weather'].currentValue) {
-      this.isLoading = false
+   //   this.isLoading = false
 
       this.prepareCurrentTemp(changes['weather'].currentValue)
     }

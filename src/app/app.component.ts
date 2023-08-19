@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {RouterLink, RouterOutlet} from "@angular/router";
 
 @Component({
@@ -9,7 +9,8 @@ import {RouterLink, RouterOutlet} from "@angular/router";
   imports: [
     RouterLink,
     RouterOutlet
-  ]
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
   public title: string = 'User Weather App';

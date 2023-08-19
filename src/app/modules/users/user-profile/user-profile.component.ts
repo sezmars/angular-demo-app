@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnDestroy, OnInit} from '@angular/core';
 import {IUser} from "../../../interfaces/user";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Location} from '@angular/common';
@@ -12,7 +12,8 @@ import {LocalStorageService} from "../../../services/local-storage.service";
   imports: [
     SharedComponentsModule
   ],
-  styleUrls: ['./user-profile.component.scss']
+  styleUrls: ['./user-profile.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserProfileComponent implements OnInit, OnDestroy {
   public user!: Partial<IUser> | null;

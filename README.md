@@ -88,10 +88,4 @@ Time management is crucial. Begin with implementing the core functionality ("hap
 
 Such features were not included in the project to save time:
 
-- onPushStrategy
-- directive defaultPrevent
-- aliases for imports
-- eslint for project
-- import sort
-- common css classes
-- basic desing (web, mob, styles, etc.)
+

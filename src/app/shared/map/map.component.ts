@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {icon, LatLng, latLng, Layer, marker, tileLayer} from "leaflet";
 import {LeafletModule} from "@asymmetrik/ngx-leaflet";
 import {CommonModule} from "@angular/common";
@@ -11,7 +11,8 @@ import {CommonModule} from "@angular/common";
     LeafletModule,
     CommonModule,
   ],
-  styleUrls: ['./map.component.scss']
+  styleUrls: ['./map.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MapComponent implements OnChanges {
   @Input() public markerOptions!: {
