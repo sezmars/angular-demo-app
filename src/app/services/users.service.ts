@@ -22,12 +22,4 @@ export class UsersService {
     }>(`${URL}?results=10`)
       .pipe(map((data) => data.results))
   }
-
-  /**
-   * Use local storage instead of http request
-   * */
-  /*public getUser(id: string ): Observable<Partial<IUser>> {
-    return this.http.get<{ results: Partial<IUser[]> }>(`${URL}?${id}`)
-      .pipe(map((data) => data.results.at(0) as IUser))
-  }*/
 }
