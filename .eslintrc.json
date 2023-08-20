@@ -17,7 +17,6 @@
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
-
       "settings": {
         "import/resolver": {
           "typescript": {
@@ -26,6 +25,15 @@
         }
       },
       "rules": {
+        "@typescript-eslint/explicit-member-accessibility": [
+          "error",
+          {
+            "accessibility": "explicit",
+            "overrides" : {
+              "constructors": "no-public"
+            }
+          }
+        ],
         "import/no-unresolved": "error",
         "@typescript-eslint/no-non-null-assertion": "off",
         "import/order": [

@@ -17,6 +17,6 @@ import {IUser} from "~interfaces/user";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardComponent {
-  @Input() user!: Partial<IUser>;
-  @Input() index!: number;
+  @Input() public user!: Partial<IUser>;
+  @Input() public index!: number;
 }

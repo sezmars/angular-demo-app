@@ -22,7 +22,7 @@ import {ClickStopPropagationDirective} from "~shared/directives/click-stop-propa
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserListComponent implements OnInit {
-  public users: Partial<IUser[]> | undefined
+   public users: Partial<IUser[]> | undefined
 
   constructor(
     private router: Router,

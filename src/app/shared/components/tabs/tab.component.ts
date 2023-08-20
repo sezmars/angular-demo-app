@@ -17,7 +17,7 @@ import {Component, Input} from "@angular/core";
   standalone: true,
 })
 export default class TabComponent {
-  @Input() tabTitle!: string;
-  @Input() tabNavigate!: string;
-  @Input() active: boolean = false;
+  @Input() public tabTitle!: string;
+  @Input() public tabNavigate!: string;
+  @Input() public active: boolean = false;
 }

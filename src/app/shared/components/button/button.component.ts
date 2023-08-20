@@ -10,7 +10,7 @@ type Type = 'primary' | 'back' | 'clear'
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ButtonComponent {
-  @Input() type: Type = 'primary'
-  @Input() hint: string = ''
-  @Output() btnClick: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>()
+  @Input() public type: Type = 'primary'
+  @Input() public hint: string = ''
+  @Output() public btnClick: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>()
 }
