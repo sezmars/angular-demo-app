@@ -1,6 +1,7 @@
 import {Route} from '@angular/router';
-import {UserListComponent} from "./user-list/user-list.component";
+
 import {UserLayoutComponent} from "./user-layout/user-layout.component";
+import {UserListComponent} from "./user-list/user-list.component";
 import {UserViewedListComponent} from "./user-viewed-list/user-viewed-list.component";
 
 export const USER_ROUTES: Route[] = [

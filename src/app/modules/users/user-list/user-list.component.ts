@@ -1,12 +1,13 @@
-import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {IUser} from "~interfaces/user";
-import {UsersService} from "~services/users.service";
-import {LocalStorageService} from "~services/local-storage.service";
-import {BehaviorSubject, finalize, forkJoin, switchMap} from "rxjs";
-import {SharedComponentsModule} from "~shared/components/shared-components.module";
+import {ChangeDetectionStrategy, Component, OnInit, TrackByFunction} from '@angular/core';
 import {Router} from "@angular/router";
-import {WeatherService} from "~services/weather.service";
+import {BehaviorSubject, finalize, forkJoin, switchMap} from "rxjs";
+
+import {IUser} from "~interfaces/user";
 import {IWeather} from "~interfaces/weather";
+import {LocalStorageService} from "~services/local-storage.service";
+import {UsersService} from "~services/users.service";
+import {WeatherService} from "~services/weather.service";
+import {SharedComponentsModule} from "~shared/components/shared-components.module";
 import {ClickStopPropagationDirective} from "~shared/directives/click-stop-propagation.directive";
 
 @Component({
@@ -21,7 +22,7 @@ import {ClickStopPropagationDirective} from "~shared/directives/click-stop-propa
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserListComponent implements OnInit {
-  public users!: Partial<IUser[]>
+  public users: Partial<IUser[]> | undefined
   public isLoading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor(
@@ -44,7 +45,7 @@ export class UserListComponent implements OnInit {
       }),
       finalize(() => this.isLoading$.next(false))
     ).subscribe((weatherResponses) => {
-      this.users.map((user, index) => user!.weather = <IWeather>weatherResponses[index])
+      this.users?.map((user, index) => user!.weather = <IWeather>weatherResponses[index])
     });
   }
 
@@ -62,8 +63,6 @@ export class UserListComponent implements OnInit {
       }
     })
   }
+  public trackBy: TrackByFunction<IUser | undefined> = (_, user) => user?.login.uuid
 
-  public trackBy(index: number, user: any): string {
-    return user.login.uuid;
-  }
 }

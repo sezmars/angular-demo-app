@@ -1,10 +1,12 @@
+import {Location} from '@angular/common';
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {Location} from '@angular/common';
-import {SharedComponentsModule} from "~shared/components/shared-components.module";
-import {LocalStorageService} from "~services/local-storage.service";
-import {IUser} from "~interfaces/user";
 import {Observable} from "rxjs";
+
+import {IUser} from "~interfaces/user";
+import {LocalStorageService} from "~services/local-storage.service";
+import {SharedComponentsModule} from "~shared/components/shared-components.module";
+
 
 @Component({
   standalone: true,

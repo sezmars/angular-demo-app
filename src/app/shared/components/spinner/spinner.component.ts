@@ -1,6 +1,5 @@
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {AsyncPipe, NgIf} from "@angular/common";
-import {BehaviorSubject} from "rxjs";
+import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 
 /**
  * Optimal solution: use in intersepotor

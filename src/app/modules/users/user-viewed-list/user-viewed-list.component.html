@@ -1,4 +1,5 @@
-<app-button *ngIf="(users$ | async)?.length! > 0" hint="Clear all saved users" type="clear" (onClick)="localStorageService.clearStore()">❌</app-button>
+<app-button *ngIf="(users$ | async)?.length! > 0" hint="Clear all saved users" type="clear"
+            (btnClick)="localStorageService.clearStore()">❌</app-button>
 
 <article *ngIf="(users$ | async)?.length else empty" class="user-list">
   <ng-container *ngFor="let user of (users$ | async) trackBy:trackBy;">

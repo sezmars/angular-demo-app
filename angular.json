@@ -118,10 +118,24 @@
           "builder": "angular-cli-ghpages:deploy",
           "options": {
             "baseHref": "https://sezmars.github.io/angular-demo-app/",
-            "name": "User Weather Angular App with standalone components",
+            "name": "User Weather Angular App with standalone components"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

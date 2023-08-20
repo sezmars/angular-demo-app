@@ -1,7 +1,7 @@
-import {ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {icon, LatLng, latLng, Layer, marker, tileLayer} from "leaflet";
-import {LeafletModule} from "@asymmetrik/ngx-leaflet";
 import {CommonModule} from "@angular/common";
+import {ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+import {LeafletModule} from "@asymmetrik/ngx-leaflet";
+import {icon, LatLng, latLng, LatLngExpression, LatLngTuple, Layer, marker, tileLayer} from "leaflet";
 
 @Component({
   standalone: true,
@@ -20,10 +20,10 @@ export class MapComponent implements OnChanges {
     name: string,
     picture: string,
     description: string,
-    position: LatLng | any
+    position: LatLngExpression
   }
 
-  public optionsSpec: any = {
+  public optionsSpec: { center: LatLngTuple; layers: { attribution: string; url: string }[]; zoom: number } = {
     layers: [{url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', attribution: 'Open Street Map'}],
     zoom: 5,
     center: [46.879966, -121.726909]
@@ -32,7 +32,7 @@ export class MapComponent implements OnChanges {
   public zoom = this.optionsSpec.zoom;
   public center = latLng(this.optionsSpec.center);
   public options = {
-    layers: [tileLayer(this.optionsSpec.layers[0].url, {attribution: this.optionsSpec.layers[0].attribution})],
+    layers: [tileLayer(this.optionsSpec.layers.at(0)!.url, {attribution: this.optionsSpec.layers.at(0)!.attribution})],
     zoom: this.optionsSpec.zoom,
     center: latLng(this.optionsSpec.center)
   };

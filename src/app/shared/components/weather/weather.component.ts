@@ -1,6 +1,8 @@
-import {ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {CommonModule} from "@angular/common";
+import {ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges} from '@angular/core';
+
 import {IWeather, IWeatherBase} from "~interfaces/weather";
+
 import {ButtonComponent} from "../button/button.component";
 import {CardComponent} from "../card/card.component";
 import {SpinnerComponent} from "../spinner/spinner.component";

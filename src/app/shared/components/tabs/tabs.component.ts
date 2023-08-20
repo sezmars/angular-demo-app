@@ -1,3 +1,4 @@
+import {CommonModule} from '@angular/common';
 import {
   AfterContentInit,
   ChangeDetectionStrategy,
@@ -7,9 +8,10 @@ import {
   Output,
   QueryList
 } from '@angular/core';
-import {CommonModule} from '@angular/common';
-import TabComponent from "~shared/components/tabs/tab.component";
 import {Router} from "@angular/router";
+
+import TabComponent from "~shared/components/tabs/tab.component";
+
 
 @Component({
   selector: 'app-tabs',

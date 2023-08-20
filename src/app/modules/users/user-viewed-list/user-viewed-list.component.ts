@@ -1,11 +1,13 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {ChangeDetectionStrategy, Component, TrackByFunction} from '@angular/core';
+import {Observable} from "rxjs";
+
+import {IUser} from "~interfaces/user";
 import {LocalStorageService} from "~services/local-storage.service";
 import {ButtonComponent} from "~shared/components/button/button.component";
 import {CardComponent} from "~shared/components/card/card.component";
 import {WeatherComponent} from "~shared/components/weather/weather.component";
-import {IUser} from "~interfaces/user";
-import {Observable} from "rxjs";
+
 
 @Component({
   selector: 'app-user-viewed-list',
@@ -22,7 +24,6 @@ export class UserViewedListComponent {
     this.users$ = localStorageService.getSavedUsersFromLocalStorage();
   }
 
-  public trackBy(index: number, user: any): string {
-    return user.login.uuid;
-  }
+  public trackBy: TrackByFunction<IUser> = (_, user) => user.login.uuid
+
 }

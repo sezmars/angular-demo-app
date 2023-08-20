@@ -12,5 +12,5 @@ type Type = 'primary' | 'back' | 'clear'
 export class ButtonComponent {
   @Input() type: Type = 'primary'
   @Input() hint: string = ''
-  @Output() onClick: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>()
+  @Output() btnClick: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>()
 }

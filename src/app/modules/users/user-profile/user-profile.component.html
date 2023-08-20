@@ -1,5 +1,5 @@
 <app-button
-  (onClick)="backClicked()"
+  (btnClick)="backClicked()"
   type="back">🔙
 </app-button>
 
@@ -12,7 +12,7 @@
             name: user.name!.last,
             description: user.gender!,
             picture: user.picture!.large,
-            position: [+user.location?.coordinates!.latitude, +user.location?.coordinates!.longitude]
+            position: $any([user.location.coordinates!.latitude, user.location.coordinates!.longitude])
         }">
   </app-map>
 </ng-container>
@@ -21,7 +21,7 @@
   <app-spinner [isLoading]="isLoading"></app-spinner>
 </ng-template>
 
-<ng-container *ngIf="!(user$ | async)">
+<ng-container *ngIf="(user$ | async) === undefined">
   User Not Found
 </ng-container>
 
