@@ -1,1 +1,13 @@
-<p>user-viewed-list works!</p>
+<app-button *ngIf="(users$ | async)?.length! > 0" hint="Clear all saved users" type="clear" (onClick)="localStorageService.clearStore()">❌</app-button>
+
+<article *ngIf="(users$ | async)?.length else empty" class="user-list">
+  <ng-container *ngFor="let user of (users$ | async) trackBy:trackBy;">
+    <app-card [user]="user!">
+      <app-weather [weather]="user!.weather" mainContent></app-weather>
+    </app-card>
+  </ng-container>
+</article>
+
+<ng-template #empty>
+  No saved users
+</ng-template>
