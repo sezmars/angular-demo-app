@@ -2,6 +2,7 @@
   <ng-container *ngFor="let user of users trackBy:trackBy; let i = index;">
     <app-card [user]="user!">
       <app-button
+        appClickStopPropagation
         (onClick)="saveUser($event, user)"
         *ngIf="user"
         buttonContent>Details

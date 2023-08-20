@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {LocalStorageService} from "~services/local-storage.service";
-import {ButtonComponent} from "~shared/button/button.component";
-import {CardComponent} from "~shared/card/card.component";
-import {WeatherComponent} from "~shared/weather/weather.component";
+import {ButtonComponent} from "~shared/components/button/button.component";
+import {CardComponent} from "~shared/components/card/card.component";
+import {WeatherComponent} from "~shared/components/weather/weather.component";
 import {IUser} from "~interfaces/user";
 import {Observable} from "rxjs";
 

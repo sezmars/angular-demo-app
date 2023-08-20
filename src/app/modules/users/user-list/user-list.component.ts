@@ -3,10 +3,11 @@ import {IUser} from "../../../interfaces/user";
 import {UsersService} from "../../../services/users.service";
 import {LocalStorageService} from "../../../services/local-storage.service";
 import {BehaviorSubject, finalize, forkJoin, switchMap} from "rxjs";
-import {SharedComponentsModule} from "~shared/shared-components.module";
+import {SharedComponentsModule} from "~shared/components/shared-components.module";
 import {Router} from "@angular/router";
 import {WeatherService} from "../../../services/weather.service";
 import {IWeather} from "../../../interfaces/weather";
+import {ClickStopPropagationDirective} from "~shared/directives/click-stop-propagation.directive";
 
 @Component({
   standalone: true,
@@ -15,6 +16,7 @@ import {IWeather} from "../../../interfaces/weather";
   styleUrls: ['./user-list.component.scss'],
   imports: [
     SharedComponentsModule,
+    ClickStopPropagationDirective,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -47,11 +49,6 @@ export class UserListComponent implements OnInit {
   }
 
   public async saveUser(event: MouseEvent, user: IUser): Promise<void> {
-    /**
-     * We can use the directive: stop-propagation
-     * */
-    event.preventDefault()
-    event.stopPropagation()
 
     user.login.uuid ? this.localStorageService.saveData(user.login.uuid, user) : alert('UUID does not exist')
 

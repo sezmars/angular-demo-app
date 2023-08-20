@@ -1,8 +1,8 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Router, RouterLink, RouterOutlet} from "@angular/router";
-import {TabsComponent} from "~shared/tabs/tabs.component";
-import TabComponent from "~shared/tabs/tab.component";
+import {TabsComponent} from "~shared/components/tabs/tabs.component";
+import TabComponent from "~shared/components/tabs/tab.component";
 
 @Component({
   selector: 'app-user-layout',

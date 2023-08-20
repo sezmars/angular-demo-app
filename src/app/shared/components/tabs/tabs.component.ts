@@ -8,7 +8,7 @@ import {
   QueryList
 } from '@angular/core';
 import {CommonModule} from '@angular/common';
-import TabComponent from "~shared/tabs/tab.component";
+import TabComponent from "~shared/components/tabs/tab.component";
 import {Router} from "@angular/router";
 
 @Component({
