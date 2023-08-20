@@ -17,7 +17,7 @@
   </app-map>
 </ng-container>
 
-<ng-container *ngIf="(user$ | async) === undefined">
-  User Not Found
+<ng-container *ngIf="(user$ | async) === null">
+ <div class="not-found">User Not Found</div>
 </ng-container>
 

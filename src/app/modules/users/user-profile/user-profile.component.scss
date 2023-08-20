@@ -2,6 +2,10 @@
   gap: 10px;
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
   justify-content: center;
+}
+
+.not-found {
+  display: flex;
+  align-items: center;
 }
