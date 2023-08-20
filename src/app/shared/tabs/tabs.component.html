@@ -1,0 +1,6 @@
+<div class="tabs__buttons--container">
+  <ul class="tabs__tab">
+    <li *ngFor="let tab of tabs" class="tabs__tab-btn" [ngClass]="{'tabs__tab-btn--not-selected': tab.active !== true }" (click)="selectTab(tab)">{{ tab.tabTitle }} </li>
+  </ul>
+  <ng-content></ng-content>
+</div>
