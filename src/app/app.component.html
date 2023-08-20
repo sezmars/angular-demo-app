@@ -1,9 +1,10 @@
 <div class="main">
-  <nav>
-    <div>
-      <a [routerLink]="['/']"><img class="logo" alt="logo" src="assets/weather.svg"></a>
-      <h1 class="title">{{title}}</h1>
-    </div>
-  </nav>
-  <router-outlet></router-outlet>
+    <nav>
+        <div>
+            <a [routerLink]="['/']"><img class="logo" alt="logo" src="assets/weather.svg"></a>
+            <h1 class="title">{{title}}</h1>
+        </div>
+    </nav>
+    <router-outlet></router-outlet>
+    <app-spinner></app-spinner>
 </div>

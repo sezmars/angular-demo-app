@@ -1,5 +1,8 @@
 import {AsyncPipe, NgIf} from "@angular/common";
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {Subject} from "rxjs";
+
+import {SpinnerService} from "~services/spinner.service";
 
 /**
  * Optimal solution: use in intersepotor
@@ -16,5 +19,8 @@ import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SpinnerComponent {
-  @Input() isLoading: boolean | null = false;
+  public isLoading: Subject<boolean> = this.spinnerService.isLoading;
+
+  constructor(private spinnerService: SpinnerService) {
+  }
 }

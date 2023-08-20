@@ -1,4 +1,4 @@
-<article *ngIf="users?.length else loading" class="user-list">
+<article *ngIf="users?.length" class="user-list">
   <ng-container *ngFor="let user of users trackBy:trackBy; let i = index;">
     <app-card [user]="user!">
       <app-button
@@ -11,10 +11,6 @@
     </app-card>
   </ng-container>
 </article>
-
-<ng-template #loading>
-  <app-spinner [isLoading]="isLoading$ | async"></app-spinner>
-</ng-template>
 
 
 
