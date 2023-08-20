@@ -1,12 +1,12 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {IUser} from "../../../interfaces/user";
-import {UsersService} from "../../../services/users.service";
-import {LocalStorageService} from "../../../services/local-storage.service";
+import {IUser} from "~interfaces/user";
+import {UsersService} from "~services/users.service";
+import {LocalStorageService} from "~services/local-storage.service";
 import {BehaviorSubject, finalize, forkJoin, switchMap} from "rxjs";
 import {SharedComponentsModule} from "~shared/components/shared-components.module";
 import {Router} from "@angular/router";
-import {WeatherService} from "../../../services/weather.service";
-import {IWeather} from "../../../interfaces/weather";
+import {WeatherService} from "~services/weather.service";
+import {IWeather} from "~interfaces/weather";
 import {ClickStopPropagationDirective} from "~shared/directives/click-stop-propagation.directive";
 
 @Component({

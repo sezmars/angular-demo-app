@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {map, Observable} from "rxjs";
-import {IUser} from "../interfaces/user";
+import {IUser} from "~interfaces/user";
 
 /**
  * Use the environment.ts correctly

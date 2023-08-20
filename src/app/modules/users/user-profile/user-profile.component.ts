@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 import {Location} from '@angular/common';
 import {SharedComponentsModule} from "~shared/components/shared-components.module";
 import {LocalStorageService} from "~services/local-storage.service";
@@ -22,7 +22,6 @@ export class UserProfileComponent implements OnInit {
   public isLoading: boolean = false;
 
   constructor(
-    private router: Router,
     private location: Location,
     private activateRouter: ActivatedRoute,
     private localStorageService: LocalStorageService) {
@@ -34,11 +33,6 @@ export class UserProfileComponent implements OnInit {
 
     this.user$ =  this.localStorageService.getData(this.id!)
     this.isLoading = false;
-
-    /*if (!this.user) {
-      alert('User not found')
-      await this.router.navigate(['/'])
-    }*/
   }
 
   public backClicked() {
