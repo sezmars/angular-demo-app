@@ -5,7 +5,7 @@
 
 <ng-container *ngIf="user; else loading">
   <app-card [user]="user!">
-    <app-weather [weather]="user.weather!" weatherContent></app-weather>
+    <app-weather [weather]="user.weather!" mainContent></app-weather>
   </app-card>
   <app-map [markerOptions]="{
             id: user.login!.uuid,
@@ -16,7 +16,6 @@
         }">
   </app-map>
 </ng-container>
-
 
 <ng-template #loading>
   <app-spinner [isLoading]="isLoading"></app-spinner>
