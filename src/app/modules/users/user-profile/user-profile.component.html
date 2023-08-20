@@ -3,7 +3,7 @@
   type="back">🔙
 </app-button>
 
-<ng-container *ngIf="user; else loading">
+<ng-container *ngIf="(user$ | async) as user; else loading">
   <app-card [user]="user!">
     <app-weather [weather]="user.weather!" mainContent></app-weather>
   </app-card>
@@ -21,4 +21,7 @@
   <app-spinner [isLoading]="isLoading"></app-spinner>
 </ng-template>
 
+<ng-container *ngIf="!(user$ | async)">
+  User Not Found
+</ng-container>
 
