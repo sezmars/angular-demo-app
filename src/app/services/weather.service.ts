@@ -2,11 +2,7 @@ import {Injectable} from '@angular/core';
 import {map, Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 import {IWeather, IWeatherBase} from "~interfaces/weather";
-
-/**
- * Use the environment.ts correctly
- * */
-const URL = 'https://api.open-meteo.com/v1/forecast'
+import {environment} from "~environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +17,7 @@ export class WeatherService {
       daily: Partial<IWeatherBase>,
       hourly: Partial<IWeatherBase>,
 
-    }>(`${URL}?latitude=${latitude}&longitude=${longitude}&timezone=${timezone}&daily=weathercode,temperature_2m_max,temperature_2m_min&hourly=temperature_2m`)
+    }>(`${environment.openMeteoApi}?latitude=${latitude}&longitude=${longitude}&timezone=${timezone}&daily=weathercode,temperature_2m_max,temperature_2m_min&hourly=temperature_2m`)
       .pipe(map((data) => {
         const {
           temperature_2m_max: max,
