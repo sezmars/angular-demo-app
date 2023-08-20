@@ -1,22 +1,39 @@
+$primary: #00c46a;
+$clear: #eceeed;
+$white: white;
+
 :host {
   display: flex;
   justify-content: flex-end;
-}
 
-.btn {
-  color: inherit;
-  text-transform: uppercase;
-  padding: 0.8rem 1.6rem;
-  font-family: inherit;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 10px;
-}
+  .btn {
+    color: inherit;
+    text-transform: uppercase;
+    padding: 0.8rem 1.6rem;
+    font-family: inherit;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
 
-.primary {
-  font-weight: 700;
-  background-color: var(--color-brand--2);
-  color: var(--color-dark--1);
-}
+    &.primary {
+      font-weight: 700;
+      background-color: $primary;
+      color: $white;
 
+      &:hover {
+        background-color: darken($primary, 10%);
+      }
+    }
+
+    &.clear, &.back {
+      font-weight: 700;
+      background-color: $clear;
+      color: $white;
+
+      &:hover {
+        background-color: darken($clear, 10%);
+      }
+    }
+  }
+}

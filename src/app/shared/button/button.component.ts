@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 
-type Type = 'primary' | 'back'
+type Type = 'primary' | 'back' | 'clear'
 
 @Component({
   standalone: true,
@@ -11,5 +11,6 @@ type Type = 'primary' | 'back'
 })
 export class ButtonComponent {
   @Input() type: Type = 'primary'
+  @Input() hint: string = ''
   @Output() onClick: EventEmitter<MouseEvent> = new EventEmitter<MouseEvent>()
 }
