@@ -4,8 +4,8 @@ import {finalize, forkJoin, switchMap} from "rxjs";
 
 import {IUser} from "~interfaces/user";
 import {IWeather} from "~interfaces/weather";
-import {NotificationService} from "~services/errors-handles/notification.service";
 import {LocalStorageService} from "~services/data/local-storage.service";
+import {NotificationService} from "~services/errors-handles/notification.service";
 import {UsersService} from "~services/http/users.service";
 import {WeatherService} from "~services/http/weather.service";
 import {SharedComponentsModule} from "~shared/components/shared-components.module";
