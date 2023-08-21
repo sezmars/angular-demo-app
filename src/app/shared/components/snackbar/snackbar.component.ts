@@ -36,7 +36,7 @@ export class SnackbarComponent implements OnInit {
     public show$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
     public type: SnackbarType = SnackbarType.Success;
-    public closed = new EventEmitter<void>();
+    public closed: EventEmitter<void> = new EventEmitter<void>();
 
     constructor(
         private cd: ChangeDetectorRef,

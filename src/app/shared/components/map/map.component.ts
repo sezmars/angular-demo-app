@@ -1,7 +1,7 @@
 import {CommonModule} from "@angular/common";
 import {ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges} from '@angular/core';
 import {LeafletModule} from "@asymmetrik/ngx-leaflet";
-import {icon, LatLng, latLng, LatLngExpression, LatLngTuple, Layer, marker, tileLayer} from "leaflet";
+import {icon, LatLng, latLng, LatLngExpression, LatLngTuple, Layer, marker, TileLayer, tileLayer} from "leaflet";
 
 @Component({
   standalone: true,
@@ -29,18 +29,18 @@ export class MapComponent implements OnChanges {
     center: [46.879966, -121.726909]
   };
 
-  public zoom = this.optionsSpec.zoom;
-  public center = latLng(this.optionsSpec.center);
-  public options = {
+  public zoom: number = this.optionsSpec.zoom;
+  public center: LatLng = latLng(this.optionsSpec.center);
+  public options: {layers: TileLayer[], zoom: number, center: LatLng} = {
     layers: [tileLayer(this.optionsSpec.layers.at(0)!.url, {attribution: this.optionsSpec.layers.at(0)!.attribution})],
     zoom: this.optionsSpec.zoom,
     center: latLng(this.optionsSpec.center)
   };
-  public formZoom = this.zoom;
+  public formZoom: number = this.zoom;
   public markers: Layer[] = [];
 
-  private lat = this.center.lat;
-  private lng = this.center.lng;
+  private lat: number = this.center.lat;
+  private lng: number = this.center.lng;
 
   public ngOnChanges(changes: SimpleChanges) {
     if (changes['markerOptions'].currentValue) {

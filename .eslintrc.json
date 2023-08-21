@@ -25,6 +25,12 @@
         }
       },
       "rules": {
+        "@typescript-eslint/typedef": [
+          "error",
+          {
+            "memberVariableDeclaration": true
+          }
+        ],
         "@typescript-eslint/explicit-member-accessibility": [
           "error",
           {

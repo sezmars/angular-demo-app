@@ -23,7 +23,7 @@ import {SpinnerComponent} from "../spinner/spinner.component";
 export class WeatherComponent implements OnChanges {
   @Input() public weather!: IWeather
   public currentTemperature!: number;
-  protected readonly Math = Math;
+  protected readonly Math: Math = Math;
 
   public ngOnChanges(changes: SimpleChanges) {
     if (changes['weather'].currentValue) {
