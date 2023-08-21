@@ -6,7 +6,7 @@ import {Directive, HostListener} from '@angular/core';
 })
 export class ClickStopPropagationDirective {
   @HostListener("click", ["$event"])
-  public onClick(event: MouseEvent)
+  public onClick(event: MouseEvent): void
   {
     event.stopPropagation();
   }

@@ -30,14 +30,14 @@ export class UserProfileComponent implements OnInit {
     this.id = this.activateRouter.snapshot.paramMap.get('uuid');
   }
 
-  public async ngOnInit() {
+  public async ngOnInit(): Promise<void> {
     this.isLoading = true;
 
     this.user$ =  this.localStorageService.getData(this.id!)
     this.isLoading = false;
   }
 
-  public backClicked() {
+  public backClicked(): void {
     this.location.back();
   }
 }

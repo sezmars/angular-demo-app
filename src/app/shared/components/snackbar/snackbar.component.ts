@@ -47,11 +47,11 @@ export class SnackbarComponent implements OnInit {
         })
     }
 
-    public ngOnInit() {
+    public ngOnInit(): void {
         this.snackbarService.setSnackbarComponent(this);
     }
 
-    public close() {
+    public close(): void {
         this.snackbarService.closeSnackbar();
         this.closed.emit();
     }

@@ -34,7 +34,7 @@ export class UserListComponent implements OnInit {
     private localStorageService: LocalStorageService) {
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.usersService.getUsers().pipe(
       switchMap((users: Partial<IUser[]>) => {
         this.users = users;

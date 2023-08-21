@@ -7,11 +7,11 @@ import {Subject} from "rxjs";
 export class SpinnerService {
   public isLoading: Subject<boolean> = new Subject<boolean>();
 
-  public show() {
+  public show(): void {
     this.isLoading.next(true);
   }
 
-  public hide() {
+  public hide(): void {
     this.isLoading.next(false);
   }
 }

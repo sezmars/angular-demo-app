@@ -6,13 +6,13 @@ import { Injectable } from '@angular/core';
 })
 export class ErrorService {
 
-  public getClientErrorMessage(error: Error) {
+  public getClientErrorMessage(error: Error): string {
     return error.message ?
         error.message :
         error.toString();
   }
 
-  public getServerErrorMessage(error: HttpErrorResponse) {
+  public getServerErrorMessage(error: HttpErrorResponse): string {
     return navigator.onLine ?
         error.message :
         'No Internet Connection';

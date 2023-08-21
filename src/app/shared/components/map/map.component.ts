@@ -42,7 +42,7 @@ export class MapComponent implements OnChanges {
   private lat: number = this.center.lat;
   private lng: number = this.center.lng;
 
-  public ngOnChanges(changes: SimpleChanges) {
+  public ngOnChanges(changes: SimpleChanges): void {
     if (changes['markerOptions'].currentValue) {
       const position = changes['markerOptions'].currentValue.position;
 
@@ -54,26 +54,26 @@ export class MapComponent implements OnChanges {
     }
   }
 
-  public onCenterChange(center: LatLng) {
+  public onCenterChange(center: LatLng): void {
     setTimeout(() => {
       this.lat = center.lat;
       this.lng = center.lng;
     });
   }
 
-  public onZoomChange(zoom: number) {
+  public onZoomChange(zoom: number): void {
     setTimeout(() => {
       this.formZoom = zoom;
     });
   }
 
-  private doApply() {
+  private doApply(): void {
     this.center = latLng(this.lat, this.lng);
     this.zoom = this.formZoom;
   }
 
 
-  private addMarker() {
+  private addMarker(): void {
     const newMarker = marker(
       this.markerOptions.position,
       {

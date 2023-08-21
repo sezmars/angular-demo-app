@@ -13,11 +13,11 @@ import {
 export class SnackbarService {
   private snackbarComponent?: SnackbarComponent;
 
-  public setSnackbarComponent(snackbarComponent: SnackbarComponent) {
+  public setSnackbarComponent(snackbarComponent: SnackbarComponent): void {
     this.snackbarComponent = snackbarComponent;
   }
 
-  public openSnackbar(message: string, type: SnackbarType, position: TSnackbarPosition = 'bottom', duration: number = 5000) {
+  public openSnackbar(message: string, type: SnackbarType, position: TSnackbarPosition = 'bottom', duration: number = 5000): void {
     if (this.snackbarComponent) {
       this.snackbarComponent.message$.next(message);
       this.snackbarComponent.type = type;
@@ -33,7 +33,7 @@ export class SnackbarService {
     }
   }
 
-  public closeSnackbar() {
+  public closeSnackbar(): void {
     if (this.snackbarComponent) {
       this.snackbarComponent.show$.next(false);
     }

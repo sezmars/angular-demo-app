@@ -25,19 +25,19 @@ export class WeatherComponent implements OnChanges {
   public currentTemperature!: number;
   protected readonly Math: Math = Math;
 
-  public ngOnChanges(changes: SimpleChanges) {
+  public ngOnChanges(changes: SimpleChanges): void {
     if (changes['weather'].currentValue) {
       this.prepareCurrentTemp(changes['weather'].currentValue)
     }
   }
 
-  public formatDay(dateStr: string) {
+  public formatDay(dateStr: string): string {
     return new Intl.DateTimeFormat("en", {
       weekday: "short",
     }).format(new Date(dateStr));
   }
 
-  public getWeatherIcon(wmoCode: number) {
+  public getWeatherIcon(wmoCode: number): string {
     const icons = new Map([
       [[0], "☀️"],
       [[1], "🌤"],
@@ -52,10 +52,10 @@ export class WeatherComponent implements OnChanges {
     ]);
     const arr = [...icons.keys()].find((key) => key.includes(wmoCode));
     if (!arr) return "NOT FOUND";
-    return icons.get(arr);
+    return <string>icons.get(arr);
   }
 
-  private prepareCurrentTemp(value: Partial<IWeatherBase>) {
+  private prepareCurrentTemp(value: Partial<IWeatherBase>): void {
     const currentDateTime = new Date(); // Получаем текущую дату и время
 
     const currentTimestamp = currentDateTime.getTime();

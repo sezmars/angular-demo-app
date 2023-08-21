@@ -13,7 +13,7 @@ export class LocalStorageService {
     this.updateSavedUsers();
   }
 
-  public saveData(key: string, data: IUser) {
+  public saveData(key: string, data: IUser): void {
     try {
       localStorage.setItem(key, JSON.stringify(data));
       this.updateSavedUsers();
@@ -32,7 +32,7 @@ export class LocalStorageService {
     }
   }
 
-  public clearStore() {
+  public clearStore(): void {
     try {
       localStorage.clear();
       this.updateSavedUsers();
@@ -45,7 +45,7 @@ export class LocalStorageService {
     return this.savedUsers$.asObservable();
   }
 
-  private updateSavedUsers() {
+  private updateSavedUsers(): void {
     const savedUsers: IUser[] = [];
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);

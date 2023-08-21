@@ -27,7 +27,7 @@ export class TabsComponent implements AfterContentInit {
 
   constructor(private router: Router) {}
 
-  public async ngAfterContentInit() {
+  public async ngAfterContentInit(): Promise<void> {
     const activeTabs = this.tabs.filter(tab => tab.active);
 
     if (activeTabs.length === 0) {
@@ -35,7 +35,7 @@ export class TabsComponent implements AfterContentInit {
     }
   }
 
-  public async selectTab(tab: TabComponent) {
+  public async selectTab(tab: TabComponent): Promise<void> {
     if (tab) {
       this.tabs.toArray().forEach(tab => (tab.active = false));
       tab.active = true;
