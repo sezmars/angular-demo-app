@@ -50,16 +50,13 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  public async saveUser(event: MouseEvent, user: IUser): Promise<void> {
+  public async saveUser(user: IUser): Promise<void> {
 
     user.login.uuid ? this.localStorageService.saveData(user.login.uuid, user) : alert('UUID does not exist')
 
     this.notificationService.showSuccess('User added to watch list', 'top-right')
 
     await this.router.navigate(['user/profile/' + user.login.uuid], {
-      /**
-       * Needed for the initial rendering of the map if we receive data by http GET => id
-       * */
       queryParams: {
         latitude: user.location.coordinates.latitude,
         longitude: user.location.coordinates.longitude

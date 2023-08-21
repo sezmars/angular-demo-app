@@ -3,7 +3,7 @@
     <app-card [user]="user!">
       <app-button
         appClickStopPropagation
-        (btnClick)="saveUser($event, user)"
+        (btnClick)="saveUser(user)"
         *ngIf="user"
         buttonContent>Details
       </app-button>
