@@ -26,7 +26,6 @@ export class SnackbarService {
 
       if (duration && (duration > 0)) {
         timer(duration).subscribe(() => {
-          console.log('subscribe')
           this.closeSnackbar();
         });
       }
