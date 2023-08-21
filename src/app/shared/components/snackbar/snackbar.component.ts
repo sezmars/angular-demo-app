@@ -1,12 +1,12 @@
 import {CommonModule} from '@angular/common';
 import {
-    ChangeDetectionStrategy,
-    Component,
-    EventEmitter,
-    OnInit,
-    ChangeDetectorRef, Input
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  OnInit,
+  ChangeDetectorRef, Input, OnDestroy
 } from '@angular/core';
-import {BehaviorSubject} from "rxjs";
+import {BehaviorSubject, Subject, takeUntil} from "rxjs";
 
 import {SnackbarService} from "~services/ui/snackbar.service";
 
@@ -27,7 +27,7 @@ export type TSnackbarPosition = 'top' | 'bottom' | 'top-left' | 'top-right' | 'b
     styleUrls: ['./snackbar.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SnackbarComponent implements OnInit {
+export class SnackbarComponent implements OnInit, OnDestroy {
     @Input() public closeBtnTitle: string = '❌'
     @Input() public position: TSnackbarPosition = 'bottom';
 
@@ -38,11 +38,16 @@ export class SnackbarComponent implements OnInit {
     public type: SnackbarType = SnackbarType.Success;
     public closed: EventEmitter<void> = new EventEmitter<void>();
 
-    constructor(
+    private destroy$: Subject<boolean> = new Subject<boolean>();
+
+
+  constructor(
         private cd: ChangeDetectorRef,
         private snackbarService: SnackbarService) {
 
-        this.message$.subscribe(() => {
+        this.message$
+          .pipe(takeUntil(this.destroy$))
+          .subscribe(() => {
             this.cd.markForCheck()
         })
     }
@@ -54,5 +59,10 @@ export class SnackbarComponent implements OnInit {
     public close(): void {
         this.snackbarService.closeSnackbar();
         this.closed.emit();
+    }
+
+    public ngOnDestroy(): void {
+      this.destroy$.next(true);
+      this.destroy$.unsubscribe();
     }
 }
