@@ -4,9 +4,6 @@ import {Subject} from "rxjs";
 
 import {SpinnerService} from "~services/ui/spinner.service";
 
-/**
- * Optimal solution: use in intersepotor
- * */
 @Component({
   standalone: true,
   selector: 'app-spinner',
