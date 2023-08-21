@@ -1,0 +1,15 @@
+<div class="custom-snackbar"
+     [ngClass]="{
+       'top': position === 'top',
+       'bottom': position === 'bottom',
+       'top-left': position === 'top-left',
+       'top-right': position === 'top-right',
+       'bottom-left': position === 'bottom-left',
+       'bottom-right': position === 'bottom-right'
+     }"
+     [class]="type"
+     *ngIf="show$ | async">
+
+    <div class="message">{{ message$ | async }}</div>
+    <button class="close-button" (click)="close()">{{ closeBtnTitle }}</button>
+</div>

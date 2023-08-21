@@ -1,0 +1,86 @@
+.custom-snackbar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+}
+
+.error {
+  background-color: var(--color-error--1);
+}
+
+.success {
+  background-color: var(--color-success--1);
+}
+
+.warning {
+  background-color: var(--color-warning--1);
+}
+
+.message {
+  flex-grow: 1;
+  margin-right: 20px;
+}
+
+.close-button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.custom-snackbar.top {
+  position: fixed;
+  left: 50%;
+  top: 20px;
+  bottom: unset;
+  z-index: 1000;
+}
+
+.custom-snackbar.top-left {
+  position: fixed;
+  left: 10%;
+  top: 20px;
+  bottom: unset;
+  z-index: 1000;
+}
+
+.custom-snackbar.top-right {
+  position: fixed;
+  top: 20px;
+  right: 0;
+  bottom: unset;
+  left: unset;
+  z-index: 1000;
+}
+
+.custom-snackbar.bottom {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  z-index: 1000;
+}
+
+.custom-snackbar.bottom-left {
+  position: fixed;
+  left: 10%;
+  bottom: 20px;
+  z-index: 1000;
+}
+
+.custom-snackbar.bottom-right {
+  position: fixed;
+  right: 0;
+  bottom: 20px;
+  left: unset;
+  z-index: 1000;
+}
+
