@@ -1,25 +1,27 @@
 import {Injectable, NgZone} from '@angular/core';
 
+import {SnackbarService} from "~services/snackbar.service";
+import {SnackbarType, TSnackbarPosition} from "~shared/components/snackbar/snackbar.component";
+
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NotificationService {
 
   constructor(
-      private zone: NgZone) { }
+      private zone: NgZone,
+      private snackbarService: SnackbarService) { }
 
-  public showSuccess(message: string): void {
-    // Had an issue with the snackbar being ran outside of angular's zone.
+  public showSuccess(message: string, position: TSnackbarPosition) {
     this.zone.run(() => {
-      alert(message)
+      this.snackbarService.openSnackbar(message, SnackbarType.Success, position, 3000);
     });
+
   }
 
-  public showError(message: string): void {
+  public showError(message: string, position: TSnackbarPosition) {
     this.zone.run(() => {
-      // The second parameter is the text in the button.
-      // In the third, we send in the css class for the snack bar.
-      alert(message)
+      this.snackbarService.openSnackbar(message, SnackbarType.Error, position, 0);
     });
   }
 }

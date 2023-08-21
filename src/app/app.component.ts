@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {RouterLink, RouterOutlet} from "@angular/router";
 
+import {SnackbarComponent} from "~shared/components/snackbar/snackbar.component";
 import {SpinnerComponent} from "~shared/components/spinner/spinner.component";
 
 @Component({
@@ -11,7 +12,8 @@ import {SpinnerComponent} from "~shared/components/spinner/spinner.component";
     imports: [
         RouterLink,
         RouterOutlet,
-        SpinnerComponent
+        SpinnerComponent,
+        SnackbarComponent
     ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

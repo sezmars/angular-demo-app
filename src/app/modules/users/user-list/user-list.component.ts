@@ -4,6 +4,7 @@ import {finalize, forkJoin, switchMap} from "rxjs";
 
 import {IUser} from "~interfaces/user";
 import {IWeather} from "~interfaces/weather";
+import {NotificationService} from "~services/errors-handles/notification.service";
 import {LocalStorageService} from "~services/local-storage.service";
 import {UsersService} from "~services/users.service";
 import {WeatherService} from "~services/weather.service";
@@ -29,6 +30,7 @@ export class UserListComponent implements OnInit {
     private cd: ChangeDetectorRef,
     private usersService: UsersService,
     private weatherService: WeatherService,
+    private notificationService: NotificationService,
     private localStorageService: LocalStorageService) {
   }
 
@@ -51,6 +53,8 @@ export class UserListComponent implements OnInit {
   public async saveUser(event: MouseEvent, user: IUser): Promise<void> {
 
     user.login.uuid ? this.localStorageService.saveData(user.login.uuid, user) : alert('UUID does not exist')
+
+    this.notificationService.showSuccess('User added to watch list', 'top-right')
 
     await this.router.navigate(['user/profile/' + user.login.uuid], {
       /**

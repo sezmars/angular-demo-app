@@ -23,11 +23,11 @@ export class GlobalErrorHandlerService implements ErrorHandler {
       // Server error
       message = errorService.getServerErrorMessage(error);
       //stackTrace = errorService.getServerErrorStackTrace(error);
-      notifier.showError(message);
+      notifier.showError(message, 'bottom');
     } else {
       // Client Error
       message = errorService.getClientErrorMessage(error);
-      notifier.showError(message);
+      notifier.showError(message, 'bottom');
     }
     // Always log errors
     logger.logError(message, stackTrace);
