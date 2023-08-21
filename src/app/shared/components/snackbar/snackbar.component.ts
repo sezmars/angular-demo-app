@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import {BehaviorSubject} from "rxjs";
 
-import {SnackbarService} from "~services/snackbar.service";
+import {SnackbarService} from "~services/ui/snackbar.service";
 
 
 export enum SnackbarType {

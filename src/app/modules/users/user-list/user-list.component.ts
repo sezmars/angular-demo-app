@@ -5,9 +5,9 @@ import {finalize, forkJoin, switchMap} from "rxjs";
 import {IUser} from "~interfaces/user";
 import {IWeather} from "~interfaces/weather";
 import {NotificationService} from "~services/errors-handles/notification.service";
-import {LocalStorageService} from "~services/local-storage.service";
-import {UsersService} from "~services/users.service";
-import {WeatherService} from "~services/weather.service";
+import {LocalStorageService} from "~services/data/local-storage.service";
+import {UsersService} from "~services/http/users.service";
+import {WeatherService} from "~services/http/weather.service";
 import {SharedComponentsModule} from "~shared/components/shared-components.module";
 import {ClickStopPropagationDirective} from "~shared/directives/click-stop-propagation.directive";
 

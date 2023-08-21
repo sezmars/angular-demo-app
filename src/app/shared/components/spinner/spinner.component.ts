@@ -2,7 +2,7 @@ import {AsyncPipe, NgIf} from "@angular/common";
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {Subject} from "rxjs";
 
-import {SpinnerService} from "~services/spinner.service";
+import {SpinnerService} from "~services/ui/spinner.service";
 
 /**
  * Optimal solution: use in intersepotor

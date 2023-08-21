@@ -1,6 +1,6 @@
 import {Injectable, NgZone} from '@angular/core';
 
-import {SnackbarService} from "~services/snackbar.service";
+import {SnackbarService} from "~services/ui/snackbar.service";
 import {SnackbarType, TSnackbarPosition} from "~shared/components/snackbar/snackbar.component";
 
 @Injectable({

@@ -4,7 +4,7 @@ import {ActivatedRoute} from "@angular/router";
 import {Observable} from "rxjs";
 
 import {IUser} from "~interfaces/user";
-import {LocalStorageService} from "~services/local-storage.service";
+import {LocalStorageService} from "~services/data/local-storage.service";
 import {SharedComponentsModule} from "~shared/components/shared-components.module";
 
 
