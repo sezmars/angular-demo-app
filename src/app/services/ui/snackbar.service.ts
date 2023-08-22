@@ -17,7 +17,7 @@ export class SnackbarService {
     this.snackbarComponent = snackbarComponent;
   }
 
-  public openSnackbar(message: string, type: SnackbarType, position: TSnackbarPosition = 'bottom', duration: number = 5000): void {
+  public openSnackbar(message: string, type: SnackbarType, position: TSnackbarPosition = 'bottom-right', duration: number = 5000): void {
     if (this.snackbarComponent) {
       this.snackbarComponent.message$.next(message);
       this.snackbarComponent.type = type;
