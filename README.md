@@ -26,7 +26,21 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-**Task Overview:**
+
+## What's included
+
+- [x] Standalone components
+- [x] Lazy loading modules
+- [x] More logical directory structure
+- [x] Responsive layout
+- [x] Very strict ESLint rules
+- [x] Aliases
+- [x] Example tests for: Component, Service, Interceptor, Directive
+- [x] End-to-end tests configuration with Cypress
+- [x] Following the [best practices](https://angular.io/guide/styleguide)!
+- [x] Use of [NgOptimizedImage](https://angular.io/guide/image-directive)
+
+## Task Overview:
 
 The primary goal of this task is to assess the proficiency of a candidate in frontend development and software design. The task requires the creation of the following application:
 
