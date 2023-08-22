@@ -13,7 +13,9 @@
     <img
       class="profile-pic"
       *ngIf="user.picture?.large"
-      src="{{ user.picture?.large }}"
+      width="200"
+      height="200"
+      ngSrc="{{ user.picture?.large }}"
       alt="Photo of {{ user.name?.first }}" />
     <h3>{{ user.name?.first }}</h3>
     <p>{{ user.gender | titlecase }} @ {{ user.location?.city | titlecase }}</p>

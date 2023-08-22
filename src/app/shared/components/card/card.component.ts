@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -14,7 +14,7 @@ import { QuotableComponent } from '~shared/components/quotable/quotable.componen
   standalone: true,
   selector: 'app-card',
   templateUrl: './card.component.html',
-  imports: [CommonModule, QuotableComponent],
+  imports: [CommonModule, QuotableComponent, NgOptimizedImage],
   styleUrls: ['./card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [cardFlip],
