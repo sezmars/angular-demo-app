@@ -1,25 +1,25 @@
-<app-button
-  (btnClick)="backClicked()"
-  type="back">🔙
-</app-button>
+<app-button (btnClick)="backClicked()" type="back">🔙 </app-button>
 
 <div class="d-flex content-center gap-10 wrap mt-10">
-  <ng-container *ngIf="(user$ | async) as user">
+  <ng-container *ngIf="user$ | async as user">
     <app-card [user]="user!">
       <app-weather [weather]="user.weather!" mainContent></app-weather>
     </app-card>
-    <app-map [markerOptions]="{
-            id: user.login!.uuid,
-            name: user.name!.last,
-            description: user.gender!,
-            picture: user.picture!.large,
-            position: $any([user.location.coordinates!.latitude, user.location.coordinates!.longitude])
-        }">
+    <app-map
+      [markerOptions]="{
+        id: user.login!.uuid,
+        name: user.name!.last,
+        description: user.gender!,
+        picture: user.picture!.large,
+        position: $any([
+          user.location.coordinates!.latitude,
+          user.location.coordinates!.longitude
+        ])
+      }">
     </app-map>
   </ng-container>
 
   <ng-container *ngIf="(user$ | async) === null">
     <div class="d-flex items-center">User Not Found</div>
   </ng-container>
-
 </div>

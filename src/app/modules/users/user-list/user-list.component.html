@@ -1,16 +1,20 @@
-<article *ngIf="users?.length" class="d-flex wrap gap-20 p-10 content-center" [@fadeInOut]>
-  <ng-container *ngFor="let user of users trackBy:trackBy; let i = index;">
+<article
+  *ngIf="users?.length"
+  class="d-flex wrap gap-20 p-10 content-center"
+  [@fadeInOut]>
+  <ng-container *ngFor="let user of users; trackBy: trackBy; let i = index">
     <app-card [user]="user!">
       <app-button
         appClickStopPropagation
         (btnClick)="saveUser(user)"
         *ngIf="user"
-        buttonContent>Details
+        buttonContent
+        >Details
       </app-button>
-      <app-weather [weather]="user!.weather" [userLocation]="user?.location?.city + ', ' + user?.location?.country" mainContent></app-weather>
+      <app-weather
+        [weather]="user!.weather"
+        [userLocation]="user?.location?.city + ', ' + user?.location?.country"
+        mainContent></app-weather>
     </app-card>
   </ng-container>
 </article>
-
-
-

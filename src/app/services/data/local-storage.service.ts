@@ -1,13 +1,15 @@
-import {Injectable} from '@angular/core';
-import {BehaviorSubject, Observable} from 'rxjs';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
-import {IUser} from "~interfaces/user";
+import { IUser } from '~interfaces/user';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LocalStorageService {
-  private savedUsers$: BehaviorSubject<IUser[]> = new BehaviorSubject<IUser[]>([]);
+  private savedUsers$: BehaviorSubject<IUser[]> = new BehaviorSubject<IUser[]>(
+    []
+  );
 
   constructor() {
     this.updateSavedUsers();
@@ -25,7 +27,9 @@ export class LocalStorageService {
   public getData(key: string): Observable<IUser | null> {
     try {
       const data = localStorage.getItem(key);
-      return data ? new BehaviorSubject<IUser>(JSON.parse(data)) : new BehaviorSubject<null>(null);
+      return data
+        ? new BehaviorSubject<IUser>(JSON.parse(data))
+        : new BehaviorSubject<null>(null);
     } catch (e) {
       console.error(e);
       return new BehaviorSubject<null>(null);

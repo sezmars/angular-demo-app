@@ -1,55 +1,66 @@
-<ng-container *ngFor="let date of weather?.dates let index = index">
-    <div class="cardm" *ngIf="isToday ? index === 0 : index">
-        <div class="card">
-            <span class="weather-icon">{{weatherPrepared.weatherIcon}}</span>
-            <div class="d-flex direction-col items-center">
-
-                <span class="mb-10">{{weatherPrepared.formatDay}}</span>
-                <div class="main">{{weatherPrepared.currentTemperature ? weatherPrepared.currentTemperature : 'Not available'}}
-                    °C
-                </div>
-                <div class="mainsub">{{userLocation}}</div>
-
-
-                <p class="mt-10 font-size-3">
-                    Min: {{weatherPrepared.minToday}} °C &mdash;
-                    Max: {{weatherPrepared.maxToday}} °C
-                </p>
-            </div>
+<ng-container *ngFor="let date of weather?.dates; let index = index">
+  <div class="cardm" *ngIf="isToday ? index === 0 : index">
+    <div class="card">
+      <span class="weather-icon">{{ weatherPrepared.weatherIcon }}</span>
+      <div class="d-flex direction-col items-center">
+        <span class="mb-10">{{ weatherPrepared.formatDay }}</span>
+        <div class="main">
+          {{
+            weatherPrepared.currentTemperature
+              ? weatherPrepared.currentTemperature
+              : 'Not available'
+          }}
+          °C
         </div>
+        <div class="mainsub">{{ userLocation }}</div>
 
-        <div class="card-details" *ngIf="isToday ? index === 0 : index">
-            <div class="upper">
-                <div class="humidity">
-                    <div class="humiditytext">Humidity<br>{{weatherPrepared.relativeHumidity}}%</div>
-                    <img class="mr-10" src="assets/humidity.png" alt="humidity"/>
-                </div>
-
-                <div class="air">
-                    <div class="airtext">Wind<br>{{weatherPrepared.currentWind}} Km/h</div>
-                    <img class="mr-10" src="assets/air.png" alt="wind-speed"/>
-                </div>
-            </div>
-
-            <div class="lower">
-                <div class="aqi">
-                    <img src="assets/aqi.png" alt="aqi"/>
-                    <div class="aqitext">AQI<br>n/a</div>
-                </div>
-
-                <div class="realfeel">
-                    <img src="assets/realfeel.png" alt="realfeel"/>
-                    <div class="realfeeltext">Real Feel<br>{{weatherPrepared.apparentTemperature}} °C</div>
-                </div>
-
-                <div class="pressure">
-                    <img src="assets/pressure.png" alt="pressure"/>
-                    <div class="pressuretext">Pressure<br>{{weatherPrepared.surfacePressure}} mbar</div>
-                </div>
-                <div class="card-is-today">
-                    {{(date | date) ?? 'Healthy' }}
-                </div>
-            </div>
-        </div>
+        <p class="mt-10 font-size-3">
+          Min: {{ weatherPrepared.minToday }} °C &mdash; Max:
+          {{ weatherPrepared.maxToday }} °C
+        </p>
+      </div>
     </div>
+
+    <div class="card-details" *ngIf="isToday ? index === 0 : index">
+      <div class="upper">
+        <div class="humidity">
+          <div class="humiditytext">
+            Humidity<br />{{ weatherPrepared.relativeHumidity }}%
+          </div>
+          <img class="mr-10" src="assets/humidity.png" alt="humidity" />
+        </div>
+
+        <div class="air">
+          <div class="airtext">
+            Wind<br />{{ weatherPrepared.currentWind }} Km/h
+          </div>
+          <img class="mr-10" src="assets/air.png" alt="wind-speed" />
+        </div>
+      </div>
+
+      <div class="lower">
+        <div class="aqi">
+          <img src="assets/aqi.png" alt="aqi" />
+          <div class="aqitext">AQI<br />n/a</div>
+        </div>
+
+        <div class="realfeel">
+          <img src="assets/realfeel.png" alt="realfeel" />
+          <div class="realfeeltext">
+            Real Feel<br />{{ weatherPrepared.apparentTemperature }} °C
+          </div>
+        </div>
+
+        <div class="pressure">
+          <img src="assets/pressure.png" alt="pressure" />
+          <div class="pressuretext">
+            Pressure<br />{{ weatherPrepared.surfacePressure }} mbar
+          </div>
+        </div>
+        <div class="card-is-today">
+          {{ (date | date) ?? 'Healthy' }}
+        </div>
+      </div>
+    </div>
+  </div>
 </ng-container>

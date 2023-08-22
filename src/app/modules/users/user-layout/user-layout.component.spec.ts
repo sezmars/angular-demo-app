@@ -8,7 +8,7 @@ describe('UserLayoutComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [UserLayoutComponent]
+      imports: [UserLayoutComponent],
     });
     fixture = TestBed.createComponent(UserLayoutComponent);
     component = fixture.componentInstance;

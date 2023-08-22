@@ -1,8 +1,14 @@
 <div class="tabs__buttons--container">
   <ul class="tabs__tab">
-    <li *ngFor="let tab of tabs; let i = index" class="tabs__tab-btn" [tabindex]="i"
-        [ngClass]="{'tabs__tab-btn--not-selected': !tab.active }" (keydown)="selectTab(tab)" (click)="selectTab(tab)">
-      {{ tab.tabTitle }} </li>
+    <li
+      *ngFor="let tab of tabs; let i = index"
+      class="tabs__tab-btn"
+      [tabindex]="i"
+      [ngClass]="{ 'tabs__tab-btn--not-selected': !tab.active }"
+      (keydown)="selectTab(tab)"
+      (click)="selectTab(tab)">
+      {{ tab.tabTitle }}
+    </li>
   </ul>
   <ng-content></ng-content>
 </div>

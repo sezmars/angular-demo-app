@@ -11,10 +11,13 @@
   gap: 0.5rem;
   padding: 1rem 2rem;
   border-radius: 1rem;
-  box-shadow: 0 0 2.2px rgba(0, 0, 0, 0.02),
-  0 0 5.3px rgba(0, 0, 0, 0.028), 0 0 10px rgba(0, 0, 0, 0.035),
-  0 0 17.9px rgba(0, 0, 0, 0.042), 0 0 33.4px rgba(0, 0, 0, 0.05),
-  0 0 80px rgba(0, 0, 0, 0.07);
+  box-shadow:
+    0 0 2.2px rgba(0, 0, 0, 0.02),
+    0 0 5.3px rgba(0, 0, 0, 0.028),
+    0 0 10px rgba(0, 0, 0, 0.035),
+    0 0 17.9px rgba(0, 0, 0, 0.042),
+    0 0 33.4px rgba(0, 0, 0, 0.05),
+    0 0 80px rgba(0, 0, 0, 0.07);
 }
 
 .toast__toast--light {
@@ -59,7 +62,6 @@
   bottom: 1rem;
 }
 
-
 main {
   display: flex;
   flex-direction: column;
@@ -102,13 +104,13 @@ button:active {
 }
 
 .success {
-  color: var(--color-success--1)
+  color: var(--color-success--1);
 }
 
 .error {
-  color: var(--color-error--1)
+  color: var(--color-error--1);
 }
 
 .warning {
-  color: var(--color-warning--1)
+  color: var(--color-warning--1);
 }

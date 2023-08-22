@@ -1,7 +1,7 @@
-import {Component, Input} from "@angular/core";
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: "app-tab",
+  selector: 'app-tab',
   template: `
     <div [hidden]="!active" class="pane">
       <ng-content></ng-content>
@@ -12,7 +12,7 @@ import {Component, Input} from "@angular/core";
       .pane {
         padding: 0 1px;
       }
-    `
+    `,
   ],
   standalone: true,
 })

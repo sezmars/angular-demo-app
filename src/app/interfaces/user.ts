@@ -1,29 +1,29 @@
-import {IWeather} from "./weather";
+import { IWeather } from './weather';
 
 export interface IUser {
   /*
-  * We can use class-transformer and create getter like fullName
-  * */
+   * We can use class-transformer and create getter like fullName
+   * */
   weather: IWeather;
   name: {
-    title: string,
-    first: string,
-    last: string
-  }
-  gender: string
+    title: string;
+    first: string;
+    last: string;
+  };
+  gender: string;
   login: {
-    uuid: string
-  }
+    uuid: string;
+  };
   picture: {
-    large: string
-  }
+    large: string;
+  };
   location: {
     coordinates: {
-      latitude: string,
-      longitude: string,
-    },
-    city: string,
-    country: string
-  }
-  email: string
+      latitude: string;
+      longitude: string;
+    };
+    city: string;
+    country: string;
+  };
+  email: string;
 }

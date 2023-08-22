@@ -19,16 +19,13 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
+    "lib": ["ES2022", "dom"],
     "paths": {
       "~assets/*": ["src/assets/*"],
       "~environments/*": ["src/environments/*"],
       "~shared/*": ["src/app/shared/*"],
       "~services/*": ["src/app/services/*"],
-      "~interfaces/*": ["src/app/interfaces/*"],
+      "~interfaces/*": ["src/app/interfaces/*"]
     }
   },
   "angularCompilerOptions": {

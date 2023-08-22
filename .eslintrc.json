@@ -1,16 +1,10 @@
 {
   "root": true,
-  "ignorePatterns": [
-    "projects/**/*"
-  ],
-  "plugins": [
-    "import"
-  ],
+  "ignorePatterns": ["projects/**/*"],
+  "plugins": ["import"],
   "overrides": [
     {
-      "files": [
-        "*.ts"
-      ],
+      "files": ["*.ts"],
       "extends": [
         "eslint:recommended",
         "plugin:import/recommended",
@@ -57,10 +51,7 @@
               // <- External imports
               "internal",
               // <- Absolute imports
-              [
-                "sibling",
-                "parent"
-              ],
+              ["sibling", "parent"],
               // <- Relative imports, the sibling and parent types they can be mingled together
               "index",
               // <- index imports
@@ -96,9 +87,7 @@
       }
     },
     {
-      "files": [
-        "*.html"
-      ],
+      "files": ["*.html"],
       "extends": [
         "plugin:@angular-eslint/template/recommended",
         "plugin:@angular-eslint/template/accessibility",

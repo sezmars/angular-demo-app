@@ -1,4 +1,4 @@
-import {CommonModule} from '@angular/common';
+import { CommonModule } from '@angular/common';
 import {
   AfterContentInit,
   ChangeDetectionStrategy,
@@ -6,12 +6,11 @@ import {
   ContentChildren,
   EventEmitter,
   Output,
-  QueryList
+  QueryList,
 } from '@angular/core';
-import {Router} from "@angular/router";
+import { Router } from '@angular/router';
 
-import TabComponent from "~shared/components/tabs/tab.component";
-
+import TabComponent from '~shared/components/tabs/tab.component';
 
 @Component({
   selector: 'app-tabs',
@@ -19,10 +18,10 @@ import TabComponent from "~shared/components/tabs/tab.component";
   imports: [CommonModule],
   templateUrl: './tabs.component.html',
   styleUrls: ['./tabs.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TabsComponent implements AfterContentInit {
-  @Output() public activeTab: EventEmitter<string> = new EventEmitter<string>
+  @Output() public activeTab: EventEmitter<string> = new EventEmitter<string>();
   @ContentChildren(TabComponent) public tabs!: QueryList<TabComponent>;
 
   constructor(private router: Router) {}
@@ -40,7 +39,7 @@ export class TabsComponent implements AfterContentInit {
       this.tabs.toArray().forEach(tab => (tab.active = false));
       tab.active = true;
       if (tab.tabNavigate) {
-        await this.router.navigate([tab.tabNavigate])
+        await this.router.navigate([tab.tabNavigate]);
       }
     }
   }

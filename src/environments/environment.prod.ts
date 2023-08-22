@@ -1,4 +1,4 @@
-import {IEnv} from "~interfaces/env";
+import { IEnv } from '~interfaces/env';
 
 export const environment: IEnv = {
   production: true,

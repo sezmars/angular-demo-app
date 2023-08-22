@@ -1,8 +1,7 @@
-import {HttpClientTestingModule} from "@angular/common/http/testing";
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { QuotableComponent } from './quotable.component';
-
 
 describe('QuotableComponent', () => {
   let component: QuotableComponent;

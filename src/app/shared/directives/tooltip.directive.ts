@@ -2,20 +2,26 @@ import {
   ApplicationRef,
   ComponentRef,
   Directive,
-  ElementRef, EmbeddedViewRef,
-  HostListener, Injector,
-  Input, OnDestroy, ViewContainerRef
+  ElementRef,
+  EmbeddedViewRef,
+  HostListener,
+  Injector,
+  Input,
+  OnDestroy,
+  ViewContainerRef,
 } from '@angular/core';
 
-import {TooltipComponent} from "~shared/components/tooltip/tooltip.component";
-import {TooltipPosition, TooltipTheme} from "~shared/components/tooltip/tooltip.enums";
+import { TooltipComponent } from '~shared/components/tooltip/tooltip.component';
+import {
+  TooltipPosition,
+  TooltipTheme,
+} from '~shared/components/tooltip/tooltip.enums';
 
 @Directive({
   selector: '[appTooltip]',
   standalone: true,
 })
 export class TooltipDirective implements OnDestroy {
-
   @Input() public tooltip: string = '';
   @Input() public position: TooltipPosition = TooltipPosition.DEFAULT;
   @Input() public theme: TooltipTheme = TooltipTheme.DEFAULT;
@@ -28,11 +34,11 @@ export class TooltipDirective implements OnDestroy {
   private touchTimeout?: number;
 
   constructor(
-      private injector: Injector,
-      private elementRef: ElementRef,
-      private appRef: ApplicationRef,
-      private viewContainerRef: ViewContainerRef) {
-  }
+    private injector: Injector,
+    private elementRef: ElementRef,
+    private appRef: ApplicationRef,
+    private viewContainerRef: ViewContainerRef
+  ) {}
 
   @HostListener('mouseenter')
   public onMouseEnter(): void {
@@ -46,7 +52,10 @@ export class TooltipDirective implements OnDestroy {
 
   @HostListener('mousemove', ['$event'])
   public onMouseMove($event: MouseEvent): void {
-    if (this.componentRef !== null && this.position === TooltipPosition.DYNAMIC) {
+    if (
+      this.componentRef !== null &&
+      this.position === TooltipPosition.DYNAMIC
+    ) {
       this.componentRef.instance.left = $event.clientX;
       this.componentRef.instance.top = $event.clientY;
       this.componentRef.instance.tooltip = this.tooltip;
@@ -57,7 +66,10 @@ export class TooltipDirective implements OnDestroy {
   public onTouchStart($event: TouchEvent): void {
     $event.preventDefault();
     window.clearTimeout(this.touchTimeout);
-    this.touchTimeout = window.setTimeout(this.initializeTooltip.bind(this), 500);
+    this.touchTimeout = window.setTimeout(
+      this.initializeTooltip.bind(this),
+      500
+    );
   }
 
   @HostListener('touchend')
@@ -69,14 +81,22 @@ export class TooltipDirective implements OnDestroy {
     if (this.componentRef === null) {
       window.clearInterval(this.hideDelay);
 
-      this.componentRef = this.viewContainerRef.createComponent(TooltipComponent, {injector: this.injector});
+      this.componentRef = this.viewContainerRef.createComponent(
+        TooltipComponent,
+        { injector: this.injector }
+      );
 
-      const [tooltipDOMElement] = (this.componentRef.hostView as EmbeddedViewRef<TooltipComponent>).rootNodes;
+      const [tooltipDOMElement] = (
+        this.componentRef.hostView as EmbeddedViewRef<TooltipComponent>
+      ).rootNodes;
 
       this.setTooltipComponentProperties();
 
       document.body.appendChild(tooltipDOMElement);
-      this.showTimeout = window.setTimeout(this.showTooltip.bind(this), this.showDelay);
+      this.showTimeout = window.setTimeout(
+        this.showTooltip.bind(this),
+        this.showDelay
+      );
     }
   }
 
@@ -86,16 +106,21 @@ export class TooltipDirective implements OnDestroy {
       this.componentRef.instance.position = this.position;
       this.componentRef.instance.theme = this.theme;
 
-      const {left, right, top, bottom} = this.elementRef.nativeElement.getBoundingClientRect();
+      const { left, right, top, bottom } =
+        this.elementRef.nativeElement.getBoundingClientRect();
 
       switch (this.position) {
         case TooltipPosition.BELOW: {
-          this.componentRef.instance.left = Math.round((right - left) / 2 + left);
+          this.componentRef.instance.left = Math.round(
+            (right - left) / 2 + left
+          );
           this.componentRef.instance.top = Math.round(bottom);
           break;
         }
         case TooltipPosition.ABOVE: {
-          this.componentRef.instance.left = Math.round((right - left) / 2 + left);
+          this.componentRef.instance.left = Math.round(
+            (right - left) / 2 + left
+          );
           this.componentRef.instance.top = Math.round(top);
           break;
         }
@@ -123,7 +148,10 @@ export class TooltipDirective implements OnDestroy {
   }
 
   private setHideTooltipTimeout(): void {
-    this.hideTimeout = window.setTimeout(this.destroy.bind(this), this.hideDelay);
+    this.hideTimeout = window.setTimeout(
+      this.destroy.bind(this),
+      this.hideDelay
+    );
   }
 
   public ngOnDestroy(): void {

@@ -1,14 +1,14 @@
-import {Injectable} from '@angular/core';
-import {timer} from "rxjs";
+import { Injectable } from '@angular/core';
+import { timer } from 'rxjs';
 
 import {
   SnackbarComponent,
   SnackbarType,
-  TSnackbarPosition
-} from "~shared/components/snackbar/snackbar.component";
+  TSnackbarPosition,
+} from '~shared/components/snackbar/snackbar.component';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SnackbarService {
   private snackbarComponent?: SnackbarComponent;
@@ -17,14 +17,19 @@ export class SnackbarService {
     this.snackbarComponent = snackbarComponent;
   }
 
-  public openSnackbar(message: string, type: SnackbarType, position: TSnackbarPosition = 'bottom-right', duration: number = 5000): void {
+  public openSnackbar(
+    message: string,
+    type: SnackbarType,
+    position: TSnackbarPosition = 'bottom-right',
+    duration: number = 5000
+  ): void {
     if (this.snackbarComponent) {
       this.snackbarComponent.message$.next(message);
       this.snackbarComponent.type = type;
       this.snackbarComponent.show$.next(true);
       this.snackbarComponent.position = position;
 
-      if (duration && (duration > 0)) {
+      if (duration && duration > 0) {
         timer(duration).subscribe(() => {
           this.closeSnackbar();
         });

@@ -1,17 +1,22 @@
-<div [class]="'toast__container toast__container--' + position" tabindex=0
-     *ngIf="show$ | async"  [@fadeInOut] (keydown)="close()" (click)="close()">
-    <div class="animate__animated animate__bounceIn toast toast__toast--light">
-        <ng-container *ngIf="type === 'success'">
-            <i [class]="'fa-solid fa-check ' + type"></i>
-        </ng-container>
-        <ng-container *ngIf="type === 'error'">
-            <i [class]="'fa-solid fa-exclamation ' + type"></i>
-        </ng-container>
-        <ng-container *ngIf="type === 'warning'">
-            <i [class]="'fa-solid fa-exclamation-triangle ' + type"></i>
-        </ng-container>
-        {{ message$ | async }}
+<div
+  [class]="'toast__container toast__container--' + position"
+  tabindex="0"
+  *ngIf="show$ | async"
+  [@fadeInOut]
+  (keydown)="close()"
+  (click)="close()">
+  <div class="animate__animated animate__bounceIn toast toast__toast--light">
+    <ng-container *ngIf="type === 'success'">
+      <i [class]="'fa-solid fa-check ' + type"></i>
+    </ng-container>
+    <ng-container *ngIf="type === 'error'">
+      <i [class]="'fa-solid fa-exclamation ' + type"></i>
+    </ng-container>
+    <ng-container *ngIf="type === 'warning'">
+      <i [class]="'fa-solid fa-exclamation-triangle ' + type"></i>
+    </ng-container>
+    {{ message$ | async }}
 
-        <button class="close-button" >{{ closeBtnTitle }}</button>
-    </div>
+    <button class="close-button">{{ closeBtnTitle }}</button>
+  </div>
 </div>

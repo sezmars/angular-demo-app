@@ -40,18 +40,23 @@ The primary goal of this task is to assess the proficiency of a candidate in fro
 You are expected to build an Angular application that retrieves user data and displays weather information based on the user's location.
 
 The first route should present randomly fetched users in a card view with the following details:
+
 1. User details
-  - [x] Name
-  - [x] Gender
-  - [x] Profile image
-  - [x] Location
-  - [x] Email
+
+- [x] Name
+- [x] Gender
+- [x] Profile image
+- [x] Location
+- [x] Email
+
 2. Weather
-  - [x] Icon (e.g., Sunny, Cloudy, etc.)
-  - [x] Current temperature
-  - [x] Highest and lowest temperatures for the current date
+
+- [x] Icon (e.g., Sunny, Cloudy, etc.)
+- [x] Current temperature
+- [x] Highest and lowest temperatures for the current date
 
 Data Sources:
+
 - User data: https://randomuser.me/api/
 - Weather data: https://api.open-meteo.com/v1/forecast?latitude=-19.7962&longitude=178.2180&current_weather=true&hourly=temperature_2m (Documentation: https://open-meteo.com/en/docs)
 
@@ -87,5 +92,3 @@ Time management is crucial. Begin with implementing the core functionality ("hap
 **Important Note From Dev:**
 
 Such features were not included in the project to save time:
-
-

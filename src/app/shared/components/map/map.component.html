@@ -1,9 +1,10 @@
-<div (leafletCenterChange)="onCenterChange($event)" (leafletZoomChange)="onZoomChange($event)"
-     [leafletCenter]="center"
-     [leafletLayers]="markers"
-     [leafletOptions]="options"
-     [leafletZoom]="zoom"
-     class="map"
-     leaflet style="height: 640px; width: 590px">
-</div>
-
+<div
+  (leafletCenterChange)="onCenterChange($event)"
+  (leafletZoomChange)="onZoomChange($event)"
+  [leafletCenter]="center"
+  [leafletLayers]="markers"
+  [leafletOptions]="options"
+  [leafletZoom]="zoom"
+  class="map"
+  leaflet
+  style="height: 640px; width: 590px"></div>

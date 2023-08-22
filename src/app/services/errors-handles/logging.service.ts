@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoggingService {
-
   public logError(message: string, stack: string): void {
     // Send errors to server here
-    if (stack)  {
+    if (stack) {
       console.info('LoggingService stack: ' + stack);
     }
     console.info('LoggingService message: ' + message);

@@ -8,7 +8,7 @@ describe('UserViewedListComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [UserViewedListComponent]
+      imports: [UserViewedListComponent],
     });
     fixture = TestBed.createComponent(UserViewedListComponent);
     component = fixture.componentInstance;

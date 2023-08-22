@@ -1,16 +1,15 @@
-import {HttpErrorResponse} from "@angular/common/http";
-import {ErrorHandler, Injectable, Injector} from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ErrorHandler, Injectable, Injector } from '@angular/core';
 
-import {ErrorService} from "~services/errors-handles/error-service.service";
-import {LoggingService} from "~services/errors-handles/logging.service";
-import {NotificationService} from "~services/errors-handles/notification.service";
+import { ErrorService } from '~services/errors-handles/error-service.service';
+import { LoggingService } from '~services/errors-handles/logging.service';
+import { NotificationService } from '~services/errors-handles/notification.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GlobalErrorHandlerService implements ErrorHandler {
-
-  constructor(private injector: Injector) { }
+  constructor(private injector: Injector) {}
 
   public handleError(error: Error | HttpErrorResponse): void {
     const errorService = this.injector.get(ErrorService);
