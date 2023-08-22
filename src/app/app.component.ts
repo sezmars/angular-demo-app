@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 
 import { SnackbarComponent } from '~shared/components/snackbar/snackbar.component';
 import { SpinnerComponent } from '~shared/components/spinner/spinner.component';
@@ -9,7 +9,7 @@ import { SpinnerComponent } from '~shared/components/spinner/spinner.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   standalone: true,
-  imports: [RouterLink, RouterOutlet, SpinnerComponent, SnackbarComponent],
+  imports: [SpinnerComponent, SnackbarComponent, RouterOutlet],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
