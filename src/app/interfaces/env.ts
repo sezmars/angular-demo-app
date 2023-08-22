@@ -3,4 +3,5 @@ export interface IEnv {
   production: boolean,
   openMeteoApi: string,
   randomUserApi: string,
+  randomQuotableApi: string,
 }
