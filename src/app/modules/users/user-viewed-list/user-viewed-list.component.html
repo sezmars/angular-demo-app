@@ -1,7 +1,10 @@
-<app-button *ngIf="(users$ | async)?.length! > 0" hint="Clear all saved users" type="clear"
-            (btnClick)="localStorageService.clearStore()">❌</app-button>
+<div class="d-flex content-end">
+  <app-button *ngIf="(users$ | async)?.length! > 0" type="clear"
+              (btnClick)="localStorageService.clearStore()"
+              appTooltip [position]="TooltipPosition.LEFT" tooltip="Clear all saved users">❌</app-button>
+</div>
 
-<article *ngIf="(users$ | async)?.length else empty" class="user-list">
+<article *ngIf="(users$ | async)?.length else empty"  class="d-flex wrap gap-20 p-10 content-center" [@fadeInOut]>
   <ng-container *ngFor="let user of (users$ | async) trackBy:trackBy;">
     <app-card [user]="user!">
       <app-weather [weather]="user!.weather" mainContent></app-weather>
@@ -10,5 +13,7 @@
 </article>
 
 <ng-template #empty>
-  No saved users
+ <div class="d-flex content-center mt-10">
+   No saved users
+ </div>
 </ng-template>
