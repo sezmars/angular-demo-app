@@ -64,7 +64,13 @@ export class TooltipDirective implements OnDestroy {
 
   @HostListener('touchstart', ['$event'])
   public onTouchStart($event: TouchEvent): void {
-    $event.preventDefault();
+    if (
+      $event.target instanceof Element &&
+      $event?.target?.localName !== 'button'
+    ) {
+      $event.preventDefault();
+    }
+
     window.clearTimeout(this.touchTimeout);
     this.touchTimeout = window.setTimeout(
       this.initializeTooltip.bind(this),
