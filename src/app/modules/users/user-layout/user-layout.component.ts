@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 import TabComponent from '~shared/components/tabs/tab.component';
 import { TabsComponent } from '~shared/components/tabs/tabs.component';
@@ -19,6 +19,4 @@ import { TabsComponent } from '~shared/components/tabs/tabs.component';
   styleUrls: ['./user-layout.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UserLayoutComponent {
-  constructor(public router: Router) {}
-}
+export class UserLayoutComponent {}
