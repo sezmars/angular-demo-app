@@ -28,6 +28,7 @@
       "~interfaces/*": ["src/app/interfaces/*"]
     }
   },
+  "exclude": ["cypress", "./cypress.config.ts"],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
