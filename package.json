@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --configuration production  ",
-    "deploy": "ng build && ng deploy",
+    "deploy": "ng build && ng deploy --no-silent",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:ci": "npm test -- --watch=false --browsers=ChromeHeadless",
