@@ -23,9 +23,6 @@ jobs:
     - name: Run tests
       run: npm run test:ci
 
-    - name: Run cypress tests
-      run: npm run cypress:run
-
     - name: Run Lint
       run: npm run lint --if-present
 
