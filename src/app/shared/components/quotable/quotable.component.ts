@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
+import { IQuotable } from '~interfaces/quotable';
 import { QuotableService } from '~services/http/quotable.service';
 import { ButtonComponent } from '~shared/components/button/button.component';
 import { TooltipComponent } from '~shared/components/tooltip/tooltip.component';
@@ -17,7 +18,7 @@ import { TooltipDirective } from '~shared/directives/tooltip.directive';
   standalone: true,
 })
 export class QuotableComponent implements OnInit {
-  public quotable$!: Observable<Partial<{ content: string }>>;
+  public quotable$!: Observable<IQuotable>;
 
   constructor(private quotableService: QuotableService) {}
 
