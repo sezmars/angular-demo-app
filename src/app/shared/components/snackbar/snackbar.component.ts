@@ -9,6 +9,7 @@ import {
 import {BehaviorSubject, Subject, takeUntil} from "rxjs";
 
 import {SnackbarService} from "~services/ui/snackbar.service";
+import {fadeInOut} from "~shared/animations";
 
 
 export enum SnackbarType {
@@ -17,7 +18,7 @@ export enum SnackbarType {
     Warning = 'warning'
 }
 
-export type TSnackbarPosition = 'top' | 'bottom' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
+export type TSnackbarPosition = 'top-center' | 'bottom-center' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 
 @Component({
     selector: 'app-snackbar',
@@ -25,11 +26,12 @@ export type TSnackbarPosition = 'top' | 'bottom' | 'top-left' | 'top-right' | 'b
     imports: [CommonModule],
     templateUrl: './snackbar.component.html',
     styleUrls: ['./snackbar.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    animations: [fadeInOut]
 })
 export class SnackbarComponent implements OnInit, OnDestroy {
-    @Input() public closeBtnTitle: string = '❌'
-    @Input() public position: TSnackbarPosition = 'bottom';
+    @Input() public closeBtnTitle: string = ''
+    @Input() public position: TSnackbarPosition = 'bottom-right';
 
 
     public message$: BehaviorSubject<string> = new BehaviorSubject<string>('');
