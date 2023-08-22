@@ -40,8 +40,7 @@
       </a>
     </div>
     <div class="profile-bottom">
-      <app-quotable></app-quotable>
-
+      <ng-content select="[quotableContent]"></ng-content>
       <ng-content select="[mainContent]"></ng-content>
     </div>
     <ng-content select="[buttonContent]"></ng-content>

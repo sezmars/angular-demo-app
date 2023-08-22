@@ -8,13 +8,12 @@ import {
 
 import { IUser } from '~interfaces/user';
 import { cardFlip } from '~shared/animations';
-import { QuotableComponent } from '~shared/components/quotable/quotable.component';
 
 @Component({
   standalone: true,
   selector: 'app-card',
   templateUrl: './card.component.html',
-  imports: [CommonModule, QuotableComponent, NgOptimizedImage],
+  imports: [CommonModule, NgOptimizedImage],
   styleUrls: ['./card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [cardFlip],
