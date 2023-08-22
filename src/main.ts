@@ -11,7 +11,12 @@ import {
 } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideRouter } from '@angular/router';
+import {
+  InMemoryScrollingFeature,
+  InMemoryScrollingOptions,
+  provideRouter,
+  withInMemoryScrolling,
+} from '@angular/router';
 
 import { environment } from '~environments/environment';
 import { GlobalErrorHandlerService } from '~services/errors-handles/global-error-handler.service';
@@ -24,6 +29,14 @@ import { AppComponent } from './app/app.component';
 if (environment.production) {
   enableProdMode();
 }
+
+const scrollConfig: InMemoryScrollingOptions = {
+  scrollPositionRestoration: 'top',
+  anchorScrolling: 'enabled',
+};
+
+const inMemoryScrollingFeature: InMemoryScrollingFeature =
+  withInMemoryScrolling(scrollConfig);
 
 bootstrapApplication(AppComponent, {
   providers: [
@@ -40,7 +53,7 @@ bootstrapApplication(AppComponent, {
       multi: true,
     },
     { provide: ErrorHandler, useClass: GlobalErrorHandlerService },
-    provideRouter([...APP_ROUTES]),
+    provideRouter([...APP_ROUTES], inMemoryScrollingFeature),
     provideAnimations(),
   ],
 }).then();
