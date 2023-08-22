@@ -18,6 +18,6 @@ type Type = 'primary' | 'back' | 'clear';
 export class ButtonComponent {
   @Input() public type: Type = 'primary';
   @Input() public hint: string = '';
-  @Output() public btnClick: EventEmitter<MouseEvent> =
-    new EventEmitter<MouseEvent>();
+  @Output() public btnClick: EventEmitter<MouseEvent | KeyboardEvent> =
+    new EventEmitter<MouseEvent | KeyboardEvent>();
 }

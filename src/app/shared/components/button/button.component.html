@@ -1,6 +1,7 @@
 <button
   [title]="hint"
   (click)="btnClick.emit($event)"
+  (keydown)="btnClick.emit($event)"
   [class]="type"
   class="btn">
   <ng-content></ng-content>
