@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 import {map, Observable} from "rxjs";
 
 import {environment} from "~environments/environment";
-import {IWeather, IWeatherBase} from "~interfaces/weather";
+import {IHourlyBase, IWeather, IWeatherBase} from "~interfaces/weather";
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +16,9 @@ export class WeatherService {
   public getWeather(latitude: string, longitude: string, timezone: string): Observable<Partial<IWeather>> {
     return this.http.get<{
       daily: Partial<IWeatherBase>,
-      hourly: Partial<IWeatherBase>,
+      hourly: IHourlyBase,
 
-    }>(`${environment.openMeteoApi}?latitude=${latitude}&longitude=${longitude}&timezone=${timezone}&daily=weathercode,temperature_2m_max,temperature_2m_min&hourly=temperature_2m`)
+    }>(`${environment.openMeteoApi}?latitude=${latitude}&longitude=${longitude}&timezone=${timezone}&daily=weathercode,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,relativehumidity_2m,apparent_temperature,surface_pressure,windspeed_10m`)
       .pipe(map((data) => {
         const {
           temperature_2m_max: max,
