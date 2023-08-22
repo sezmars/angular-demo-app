@@ -10,12 +10,12 @@ nav div.menu-items {
   justify-content: space-between;
 }
 
-nav > div {
-  display: flex;
-}
-
 .title {
   font-size: 25pt;
+
+  @media screen and (max-width: 400px) {
+    font-size: 15pt;
+  }
 }
 
 .logo {
@@ -24,4 +24,5 @@ nav > div {
 
 .main {
   padding: 24px;
+  height: calc(100vh - 300px);
 }
