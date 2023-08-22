@@ -1,0 +1,6 @@
+<ng-container *ngIf="(quotable$ | async)?.content! as quotable">
+    <div class="truncate" appTooltip [position]="TooltipPosition.ABOVE" [tooltip]="quotable">
+        {{quotable}}
+    </div>
+</ng-container>
+
