@@ -13,7 +13,7 @@
 
   text-align: center;
   padding: 40px 90px;
-  color: white;
+  color: var(--color-light--1);
   position: relative;
   border-radius: 20px;
 
@@ -42,13 +42,13 @@
 .profile-pic {
   width: 200px;
   border-radius: 50%;
-  background: white;
+  background: var(--color-light--1);
   padding: 6px;
   margin-top: 10px;
 }
 
 .profile-bottom {
-  background: white;
+  background: var(--color-light--1);
   color: #999;
   padding: 50px 0;
   margin-right: -90px;

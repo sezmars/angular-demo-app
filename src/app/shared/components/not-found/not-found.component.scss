@@ -17,7 +17,7 @@ main #errorLink {
   font-size: 20px;
   padding: 12px;
   border: 1px solid;
-  color: var(--color-dark--0);
+  color: var(--color-dark--1);
   background-color: transparent;
   text-decoration: none;
   transition: all 0.5s ease-in-out;
@@ -25,7 +25,7 @@ main #errorLink {
 
 main #errorLink:hover, main #errorLink:active {
   color: var(--color-light--2);
-  background: var(--color-dark--0);
+  background: var(--color-dark--1);
 }
 
 main #g6219 {

@@ -18,13 +18,13 @@
 }
 
 .toast__toast--light {
-  background-color: var(--toast-light-bg);
-  color: var(--toast-light-clr);
+  background-color: var(--color-light--1);
+  color: var(--color-dark--0);
 }
 
 .toast__toast--dark {
   background-color: var(--toast-dark-bg);
-  color: var(--toast-dark-clr);
+  color: var(--color-light--1);
 }
 
 .toast__container--top-left {
@@ -83,7 +83,7 @@ button {
 }
 
 button:hover {
-  color: white;
+  color: var(--color-light--1);
   background-color: var(--color-dark--3);
 }
 

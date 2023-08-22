@@ -1,8 +1,8 @@
 .tooltip {
   position: fixed;
-  background-color: black;
+  background-color: var(--color-dark--0);
   border-radius: 4px;
-  color: white;
+  color: var(--color-light--1);
   padding: 3px 6px;
   font-size: 13px;
 
@@ -19,20 +19,20 @@
   }
 
   &--light {
-    background-color: white;
-    color: black;
+    background-color: var(--color-light--1);
+    color: var(--color-dark--0);
 
     &::before {
-      border: 5px solid white;
+      border: 5px solid var(--color-light--1);
     }
   }
 
   &--dark {
-    background-color: black;
-    color: white;
+    background-color: var(--color-dark--0);
+    color: var(--color-light--1);
 
     &::before {
-      border: 5px solid black;
+      border: 5px solid var(--color-dark--0);
     }
   }
 
