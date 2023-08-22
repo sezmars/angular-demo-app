@@ -1,4 +1,4 @@
-<ng-container *ngFor="let date of weather.dates let index = index">
+<ng-container *ngFor="let date of weather?.dates let index = index">
     <div class="cardm" *ngIf="isToday ? index === 0 : index">
         <div class="card">
             <span class="weather-icon">{{weatherPrepared.weatherIcon}}</span>
