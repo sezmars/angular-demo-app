@@ -22,12 +22,12 @@ export class GlobalErrorHandlerService implements ErrorHandler {
     if (error instanceof HttpErrorResponse) {
       // Server error
       message = errorService.getServerErrorMessage(error);
-      //stackTrace = errorService.getServerErrorStackTrace(error);
-      notifier.showError(message, 'bottom');
+      // stackTrace = errorService.getServerErrorStackTrace(error);
+      notifier.showError(message, 'bottom-right');
     } else {
       // Client Error
       message = errorService.getClientErrorMessage(error);
-      notifier.showError(message, 'bottom');
+      notifier.showError(message, 'bottom-right');
     }
     // Always log errors
     logger.logError(message, stackTrace);
