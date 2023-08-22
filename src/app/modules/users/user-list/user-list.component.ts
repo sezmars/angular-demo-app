@@ -8,6 +8,7 @@ import {LocalStorageService} from "~services/data/local-storage.service";
 import {NotificationService} from "~services/errors-handles/notification.service";
 import {UsersService} from "~services/http/users.service";
 import {WeatherService} from "~services/http/weather.service";
+import {fadeInOut} from "~shared/animations";
 import {SharedComponentsModule} from "~shared/components/shared-components.module";
 import {ClickStopPropagationDirective} from "~shared/directives/click-stop-propagation.directive";
 
@@ -19,6 +20,9 @@ import {ClickStopPropagationDirective} from "~shared/directives/click-stop-propa
   imports: [
     SharedComponentsModule,
     ClickStopPropagationDirective,
+  ],
+  animations: [
+    fadeInOut
   ],
   changeDetection: ChangeDetectionStrategy.OnPush
 })

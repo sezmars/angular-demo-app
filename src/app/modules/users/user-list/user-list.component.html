@@ -1,4 +1,4 @@
-<article *ngIf="users?.length" class="user-list">
+<article *ngIf="users?.length" class="user-list" [@fadeInOut]>
   <ng-container *ngFor="let user of users trackBy:trackBy; let i = index;">
     <app-card [user]="user!">
       <app-button
@@ -7,7 +7,7 @@
         *ngIf="user"
         buttonContent>Details
       </app-button>
-      <app-weather [weather]="user!.weather" mainContent></app-weather>
+      <app-weather [weather]="user!.weather" [userLocation]="user?.location?.city + ', ' + user?.location?.country" mainContent></app-weather>
     </app-card>
   </ng-container>
 </article>
