@@ -22,5 +22,5 @@ export class TooltipComponent {
   public tooltip: string = '';
   public left: number = 0;
   public top: number = 0;
-  public visible: boolean = false;
+  public visible: boolean = true;
 }
